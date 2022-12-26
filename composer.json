@@ -40,6 +40,13 @@
             "pestphp/pest-plugin": true
         }
     },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "OpenAI\\Laravel\\OpenAIProvider"
+            ]
+        }
+    },
     "scripts": {
         "lint": "pint -v",
         "refactor": "rector --debug",
