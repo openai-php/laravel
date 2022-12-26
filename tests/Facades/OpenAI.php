@@ -16,6 +16,8 @@ it('resolves resources', function () {
 
     (new ServiceProvider($app))->register();
 
+    OpenAI::setFacadeApplication($app);
+
     $completions = OpenAI::completions();
 
     expect($completions)->toBeInstanceOf(Completions::class);
