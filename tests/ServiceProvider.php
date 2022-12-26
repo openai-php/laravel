@@ -45,3 +45,11 @@ it('requires an api key', function () {
     ApiKeyIsMissing::class,
     'The OpenAI API Key is missing. Please publish the [openai.php] configuration file and set the [api_key].',
 );
+
+it('provides', function () {
+    $app = app();
+
+    $provides = (new ServiceProvider($app))->provides();
+
+    expect($provides)->toBe([Client::class]);
+});
