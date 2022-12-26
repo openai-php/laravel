@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace OpenAI\Laravel;
+namespace OpenAI\Laravel\Exceptions;
 
 use InvalidArgumentException;
 
