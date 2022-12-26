@@ -1,5 +1,4 @@
 <p align="center">
-    <img src="https://raw.githubusercontent.com/openai-php/laravel/main/art/example.png" width="600" alt="OpenAI PHP">
     <p align="center">
         <a href="https://github.com/openai-php/laravel/actions"><img alt="GitHub Workflow Status (master)" src="https://img.shields.io/github/workflow/status/openai-php/laravel/Tests/main"></a>
         <a href="https://packagist.org/packages/openai-php/laravel"><img alt="Total Downloads" src="https://img.shields.io/packagist/dt/openai-php/laravel"></a>
