@@ -43,7 +43,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "OpenAI\\Laravel\\OpenAIProvider"
+                "OpenAI\\Laravel\\ServiceProvider"
             ]
         }
     },
