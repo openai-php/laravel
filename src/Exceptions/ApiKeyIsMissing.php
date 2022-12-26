@@ -17,7 +17,7 @@ final class ApiKeyIsMissing extends InvalidArgumentException
     public static function create(): self
     {
         return new self(
-            'The OpenAI API key is missing. Please publish the [openai.php] configuration file and set the [api_key].'
+            'The OpenAI API Key is missing. Please publish the [openai.php] configuration file and set the [api_key].'
         );
     }
 }
