@@ -29,7 +29,7 @@ php artisan vendor:publish --provider="OpenAI\Laravel\ServiceProvider"
 ```
 
 This will create a `config/openai.php` configuration file in your project, which you can modify to your needs
-using environment variables: 
+using environment variables:
 
 ```env
 OPENAI_API_KEY=sk-...
@@ -38,7 +38,7 @@ OPENAI_API_KEY=sk-...
 Finally, you may use the `OpenAI` facade to access the OpenAI API:
 
 ```php
-$client = OpenAI::completions()->create([
+$result = OpenAI::completions()->create([
     'model' => 'text-davinci-003',
     'prompt' => 'PHP is',
 ]);
