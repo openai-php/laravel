@@ -38,7 +38,9 @@ OPENAI_API_KEY=sk-...
 Finally, you may use the `OpenAI` facade to access the OpenAI API:
 
 ```php
-$client = OpenAI::completions()->create([
+use OpenAI\Laravel\Facades\OpenAI;
+
+$result = OpenAI::completions()->create([
     'model' => 'text-davinci-003',
     'prompt' => 'PHP is',
 ]);
