@@ -2,17 +2,17 @@
 
 test('exceptions')
     ->expect('OpenAI\Laravel\Exceptions')
-    ->toDependOnNothing();
+    ->toUseNothing();
 
 test('facades')
     ->expect('OpenAI\Laravel\Facades\OpenAI')
-    ->toOnlyDependOn([
+    ->toOnlyUse([
         'Illuminate\Support\Facades\Facade',
     ]);
 
 test('service providers')
     ->expect('OpenAI\Laravel\ServiceProvider')
-    ->toOnlyDependOn([
+    ->toOnlyUse([
         'Illuminate\Support\ServiceProvider',
         'OpenAI\Laravel',
         'OpenAI',
