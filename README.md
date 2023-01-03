@@ -1,6 +1,6 @@
 <p align="center">
     <p align="center">
-        <a href="https://github.com/openai-php/laravel/actions"><img alt="GitHub Workflow Status (master)" src="https://img.shields.io/github/workflow/status/openai-php/laravel/Tests/main"></a>
+        <a href="https://github.com/openai-php/laravel/actions"><img alt="GitHub Workflow Status (master)" src="https://img.shields.io/github/actions/workflow/status/openai-php/laravel/tests.yml?branch=main&label=tests&style=round-square"></a>
         <a href="https://packagist.org/packages/openai-php/laravel"><img alt="Total Downloads" src="https://img.shields.io/packagist/dt/openai-php/laravel"></a>
         <a href="https://packagist.org/packages/openai-php/laravel"><img alt="Latest Version" src="https://img.shields.io/packagist/v/openai-php/laravel"></a>
         <a href="https://packagist.org/packages/openai-php/laravel"><img alt="License" src="https://img.shields.io/github/license/openai-php/laravel"></a>
@@ -8,7 +8,7 @@
 </p>
 
 ------
-**OpenAI PHP** for Laravel is a supercharged PHP API client that allows you to interact with the [Open AI API](https://beta.openai.com/docs/api-reference/introduction).
+**OpenAI PHP** for Laravel is a supercharged community PHP API client that allows you to interact with the [Open AI API](https://beta.openai.com/docs/api-reference/introduction).
 
 > **Note:** This repository contains the integration code of the **OpenAI PHP** for Laravel. If you want to use the **OpenAI PHP** client in a framework-agnostic way, take a look at the [openai-php/client](https://github.com/openai-php/client) repository.
 
