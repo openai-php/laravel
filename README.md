@@ -54,4 +54,8 @@ For usage examples, take a look at the [openai-php/client](https://github.com/op
 
 ---
 
+## Contributing
+
+Thank you for considering contributing to the OpenAI PHP for Laravel! The contribution guide can be found in the [OpenAI PHP for Laravel documentation](https://github.com/openai-php/laravel/blob/main/CONTRIBUTING.md).
+
 OpenAI PHP for Laravel is an open-sourced software licensed under the **[MIT license](https://opensource.org/licenses/MIT)**.
