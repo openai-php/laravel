@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## v0.3.2 (2023-02-28)
+### Changed
+- Changed underlying `openai/client` package version from 0.3.0 to 0.3.2 ([a7e91fa](https://github.com/openai-php/laravel/commit/a7e91fae50b80578d0c7a8c5f7bb5b44c7ecacf3))
+
 ## v0.3.1 (2023-01-27)
 ### Added
 - Support for Laravel 10 ([#8](https://github.com/openai-php/laravel/pull/8))
