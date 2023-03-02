@@ -7,6 +7,7 @@ namespace OpenAI\Laravel\Facades;
 use Illuminate\Support\Facades\Facade;
 
 /**
+ * @method static \OpenAI\Resources\Chat chat()
  * @method static \OpenAI\Resources\Completions completions()
  * @method static \OpenAI\Resources\Embeddings embeddings()
  * @method static \OpenAI\Resources\Edits edits()
