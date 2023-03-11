@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace OpenAI\Laravel\Facades;
 
 use Illuminate\Support\Facades\Facade;
+use OpenAI\Contracts\Response;
+use OpenAI\Laravel\Testing\OpenAIFake;
 
 /**
  * @method static \OpenAI\Resources\Audio audio()
@@ -26,5 +28,16 @@ final class OpenAI extends Facade
     protected static function getFacadeAccessor(): string
     {
         return 'openai';
+    }
+
+    /**
+     * @param  array<array-key, Response>  $responses
+     */
+    public static function fake(array $responses = []): OpenAIFake /** @phpstan-ignore-line */
+    {
+        $fake = new OpenAIFake($responses);
+        static::swap($fake);
+
+        return $fake;
     }
 }
