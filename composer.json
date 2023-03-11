@@ -12,7 +12,7 @@
     "require": {
         "php": "^8.1.0",
         "laravel/framework": "^9.46.0|^10.2.0",
-        "openai-php/client": "^0.3.4"
+        "openai-php/client": "dev-add-testing-ability"
     },
     "require-dev": {
         "laravel/pint": "^1.6",
