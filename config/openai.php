@@ -20,10 +20,11 @@ return [
      * Guzzle config
      * ------------------------------------------------------------------------
      * more configuration information https://docs.guzzlephp.org/en/stable/
+     * can set the proxy in this way, if necessary
      */
     'guzzle' => [
-        'proxy' => [
-            'https' => env('OPENAI_API_HTTPS_PROXY'),
-        ],
+//        'proxy' => [
+//            'https' => env('OPENAI_API_HTTPS_PROXY'),
+//        ],
     ]
 ];
