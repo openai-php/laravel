@@ -27,7 +27,7 @@ final class ServiceProvider extends BaseServiceProvider
                 throw ApiKeyIsMissing::create();
             }
 
-            return OpenAI::client($apiKey, $organization);
+            return OpenAI::client($apiKey, $organization, config('openai.guzzle'));
         });
 
         $this->app->alias(Client::class, 'openai');
