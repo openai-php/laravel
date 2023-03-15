@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Facade;
  * @method static \OpenAI\Resources\Images images()
  * @method static \OpenAI\Resources\Models models()
  * @method static \OpenAI\Resources\Moderations moderations()
+ * @method static \OpenAI\Resources\Audio audio()
  */
 final class OpenAI extends Facade
 {
