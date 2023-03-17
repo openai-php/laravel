@@ -100,7 +100,7 @@ test('fake can assert a request was sent', function () {
         'prompt' => 'PHP is ',
     ]);
 
-    OpenAI::assertSent(Completions::class, function ($method, $parameters) {
+    OpenAI::assertSent(Completions::class, function (string $method, array $parameters): bool {
         return $method === 'create' &&
             $parameters['model'] === 'text-davinci-003' &&
             $parameters['prompt'] === 'PHP is ';
@@ -112,7 +112,7 @@ test('fake throws an exception if a request was not sent', function () {
         CreateResponse::fake(),
     ]);
 
-    OpenAI::assertSent(Completions::class, function ($method, $parameters) {
+    OpenAI::assertSent(Completions::class, function (string $method, array $parameters): bool {
         return $method === 'create' &&
             $parameters['model'] === 'text-davinci-003' &&
             $parameters['prompt'] === 'PHP is ';
@@ -129,7 +129,7 @@ test('fake can assert a request was sent on the resource', function () {
         'prompt' => 'PHP is ',
     ]);
 
-    OpenAI::completions()->assertSent(function ($method, $parameters) {
+    OpenAI::completions()->assertSent(function (string $method, array $parameters): bool {
         return $method === 'create' &&
             $parameters['model'] === 'text-davinci-003' &&
             $parameters['prompt'] === 'PHP is ';
