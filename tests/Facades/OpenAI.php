@@ -60,7 +60,7 @@ test('fake throws an exception if there is no more given response', function () 
     ]);
 })->expectExceptionMessage('No fake responses left');
 
-test('calling fake twice does not override the instance instead it appends the new responses', function () {
+test('append more fake responses', function () {
     OpenAI::fake([
         CreateResponse::fake([
             'id' => 'cmpl-1',
