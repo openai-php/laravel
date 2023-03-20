@@ -11,6 +11,7 @@
     ],
     "require": {
         "php": "^8.1.0",
+        "guzzlehttp/guzzle": "^7.5",
         "laravel/framework": "^9.46.0|^10.2.0",
         "openai-php/client": "dev-add-testing-ability"
     },
@@ -38,7 +39,8 @@
         "sort-packages": true,
         "preferred-install": "dist",
         "allow-plugins": {
-            "pestphp/pest-plugin": true
+            "pestphp/pest-plugin": true,
+            "php-http/discovery": true
         }
     },
     "extra": {
