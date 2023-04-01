@@ -12,15 +12,15 @@
     "require": {
         "php": "^8.1.0",
         "guzzlehttp/guzzle": "^7.5",
-        "laravel/framework": "^9.46.0|^10.2.0",
+        "laravel/framework": "^9.46.0|^10.4.1",
         "openai-php/client": "dev-add-testing-ability"
     },
     "require-dev": {
-        "laravel/pint": "^1.6",
-        "pestphp/pest": "^2.0.0",
-        "pestphp/pest-plugin-arch": "^2.0.0",
+        "laravel/pint": "^1.7",
+        "pestphp/pest": "^2.2.3",
+        "pestphp/pest-plugin-arch": "^2.0.2",
         "pestphp/pest-plugin-mock": "^2.0.0",
-        "phpstan/phpstan": "^1.10.3",
+        "phpstan/phpstan": "^1.10.8",
         "symfony/var-dumper": "^6.2.7"
     },
     "autoload": {
