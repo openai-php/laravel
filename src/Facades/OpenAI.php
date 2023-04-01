@@ -36,7 +36,7 @@ final class OpenAI extends Facade
     public static function fake(array $responses = []): OpenAIFake /** @phpstan-ignore-line */
     {
         $fake = new OpenAIFake($responses);
-        static::swap($fake);
+        self::swap($fake);
 
         return $fake;
     }
