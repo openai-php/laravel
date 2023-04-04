@@ -16,6 +16,7 @@ test('service providers')
         'Illuminate\Support\ServiceProvider',
         'OpenAI\Laravel',
         'OpenAI',
+        'Illuminate\Contracts\Support\DeferrableProvider',
 
         // helpers...
         'config',
