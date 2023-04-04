@@ -38,9 +38,11 @@ final class ServiceProvider extends BaseServiceProvider
      */
     public function boot(): void
     {
-        $this->publishes([
-            __DIR__.'/../config/openai.php' => config_path('openai.php'),
-        ]);
+        if ($this->app->runningInConsole()) {
+            $this->publishes([
+                __DIR__.'/../config/openai.php' => config_path('openai.php'),
+            ]);
+        }
     }
 
     /**
