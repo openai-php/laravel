@@ -13,7 +13,7 @@ use OpenAI\Laravel\Exceptions\ApiKeyIsMissing;
 /**
  * @internal
  */
-class ServiceProvider extends BaseServiceProvider implements DeferrableProvider
+final class ServiceProvider extends BaseServiceProvider implements DeferrableProvider
 {
     /**
      * Register any application services.
