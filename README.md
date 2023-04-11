@@ -94,22 +94,9 @@ OpenAI::assertSent(Completions::class, function (string $method, array $paramete
         $parameters['model'] === 'text-davinci-003' &&
         $parameters['prompt'] === 'PHP is ';
 });
-// or
-OpenAI::completions()->assertSent(function (string $method, array $parameters): bool {
-    // ...
-});
-
-// assert 2 completion create requests were sent
-OpenAI::assertSent(Completions::class, 2);
-
-// assert no completion create requests were sent
-OpenAI::assertNotSent(Completions::class);
-// or
-OpenAI::completions()->assertNotSent();
-
-// assert no requests were sent
-OpenAI::assertNothingSent();
 ```
+
+For more testing examples, take a look at the [openai-php/client](https://github.com/openai-php/client#testing) repository.
 
 ---
 
