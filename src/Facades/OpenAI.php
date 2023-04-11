@@ -5,8 +5,9 @@ declare(strict_types=1);
 namespace OpenAI\Laravel\Facades;
 
 use Illuminate\Support\Facades\Facade;
-use OpenAI\Contracts\Response;
+use OpenAI\Contracts\ResponseContract;
 use OpenAI\Laravel\Testing\OpenAIFake;
+use OpenAI\Responses\StreamResponse;
 
 /**
  * @method static \OpenAI\Resources\Audio audio()
@@ -31,7 +32,7 @@ final class OpenAI extends Facade
     }
 
     /**
-     * @param  array<array-key, Response>  $responses
+     * @param  array<array-key, ResponseContract|StreamResponse|string>  $responses
      */
     public static function fake(array $responses = []): OpenAIFake /** @phpstan-ignore-line */
     {

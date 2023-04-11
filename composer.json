@@ -13,7 +13,7 @@
         "php": "^8.1.0",
         "guzzlehttp/guzzle": "^7.5",
         "laravel/framework": "^9.46.0|^10.6.2",
-        "openai-php/client": "dev-add-testing-ability"
+        "openai-php/client": "dev-main"
     },
     "require-dev": {
         "laravel/pint": "^1.8",

@@ -8,8 +8,9 @@ test('facades')
     ->expect('OpenAI\Laravel\Facades\OpenAI')
     ->toOnlyUse([
         'Illuminate\Support\Facades\Facade',
-        'OpenAI\Contracts\Response',
+        'OpenAI\Contracts\ResponseContract',
         'OpenAI\Laravel\Testing\OpenAIFake',
+        'OpenAI\Responses\StreamResponse',
     ]);
 
 test('service providers')
