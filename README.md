@@ -55,6 +55,49 @@ echo $result['choices'][0]['text']; // an open-source, widely-used, server-side 
 
 For usage examples, take a look at the [openai-php/client](https://github.com/openai-php/client) repository.
 
+## Testing
+
+The `OpenAI` facade comes with a `fake()` method that allows you to fake the API responses.
+
+The fake responses are returned in the order they are provided to the `fake()` method.
+
+All responses are having a `fake()` method that allows you to easily create a response object by only providing the parameters relevant for your test case.
+
+```php
+use OpenAI\Laravel\Facades\OpenAI;
+use OpenAI\Responses\Completions\CreateResponse;
+
+OpenAI::fake([
+    CreateResponse::fake([
+        'choices' => [
+            [
+                'text' => 'awesome!',
+            ],
+        ],
+    ]),
+]);
+
+$completion = OpenAI::completions()->create([
+    'model' => 'text-davinci-003',
+    'prompt' => 'PHP is ',
+]);
+
+expect($completion['choices'][0]['text'])->toBe('awesome!');
+```
+
+After the requests have been sent there are various methods to ensure that the expected requests were sent:
+
+```php
+// assert completion create request was sent
+OpenAI::assertSent(Completions::class, function (string $method, array $parameters): bool {
+    return $method === 'create' &&
+        $parameters['model'] === 'text-davinci-003' &&
+        $parameters['prompt'] === 'PHP is ';
+});
+```
+
+For more testing examples, take a look at the [openai-php/client](https://github.com/openai-php/client#testing) repository.
+
 ---
 
 OpenAI PHP for Laravel is an open-sourced software licensed under the **[MIT license](https://opensource.org/licenses/MIT)**.
