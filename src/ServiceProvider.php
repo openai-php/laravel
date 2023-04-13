@@ -8,6 +8,7 @@ use Illuminate\Contracts\Support\DeferrableProvider;
 use Illuminate\Support\ServiceProvider as BaseServiceProvider;
 use OpenAI;
 use OpenAI\Client;
+use OpenAI\Contracts\ClientContract;
 use OpenAI\Laravel\Exceptions\ApiKeyIsMissing;
 
 /**
@@ -20,7 +21,7 @@ final class ServiceProvider extends BaseServiceProvider implements DeferrablePro
      */
     public function register(): void
     {
-        $this->app->singleton(Client::class, static function (): Client {
+        $this->app->singleton(ClientContract::class, static function (): Client {
             $apiKey = config('openai.api_key');
             $organization = config('openai.organization');
 
@@ -31,7 +32,8 @@ final class ServiceProvider extends BaseServiceProvider implements DeferrablePro
             return OpenAI::client($apiKey, $organization);
         });
 
-        $this->app->alias(Client::class, 'openai');
+        $this->app->alias(ClientContract::class, 'openai');
+        $this->app->alias(ClientContract::class, Client::class);
     }
 
     /**
@@ -55,6 +57,8 @@ final class ServiceProvider extends BaseServiceProvider implements DeferrablePro
     {
         return [
             Client::class,
+            ClientContract::class,
+            'openai',
         ];
     }
 }
