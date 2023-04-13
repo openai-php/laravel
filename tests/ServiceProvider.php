@@ -2,6 +2,7 @@
 
 use Illuminate\Config\Repository;
 use OpenAI\Client;
+use OpenAI\Contracts\ClientContract;
 use OpenAI\Laravel\Exceptions\ApiKeyIsMissing;
 use OpenAI\Laravel\ServiceProvider;
 
@@ -51,5 +52,9 @@ it('provides', function () {
 
     $provides = (new ServiceProvider($app))->provides();
 
-    expect($provides)->toBe([Client::class]);
+    expect($provides)->toBe([
+        Client::class,
+        ClientContract::class,
+        'openai',
+    ]);
 });
