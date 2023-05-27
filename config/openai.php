@@ -15,4 +15,14 @@ return [
     'api_key' => env('OPENAI_API_KEY'),
     'organization' => env('OPENAI_ORGANIZATION'),
 
+    /*
+    |--------------------------------------------------------------------------
+    | Request Timeout
+    |--------------------------------------------------------------------------
+    |
+    | The timeout may be used to specify the maximum number of seconds to wait
+    | for a response. By default, the client will time out after 30 seconds.
+    */
+
+    'request_timeout' => env('OPENAI_REQUEST_TIMEOUT', 30),
 ];
