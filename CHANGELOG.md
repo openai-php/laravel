@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## v0.5.2 (2023-05-29)
+### Fixed
+- Removed unnecessary dependency for `http-interop/http-factory-guzzle` from composer.json which leads to an error with Laravel 10 - ([#64](https://github.com/openai-php/laravel/issues/46))
+
 ## v0.5.1 (2023-05-24)
 ### Changed
 - Changed underlying `openai/client` package version from 0.5.0 to 0.5.1
