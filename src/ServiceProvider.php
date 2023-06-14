@@ -29,7 +29,11 @@ final class ServiceProvider extends BaseServiceProvider implements DeferrablePro
                 throw ApiKeyIsMissing::create();
             }
 
-            return OpenAI::client($apiKey, $organization);
+            return OpenAI::factory()
+                ->withApiKey($apiKey)
+                ->withOrganization($organization)
+                ->withHttpClient(new \GuzzleHttp\Client(['timeout' => config('openai.request_timeout', 30)]))
+                ->make();
         });
 
         $this->app->alias(ClientContract::class, 'openai');

@@ -16,6 +16,7 @@ test('facades')
 test('service providers')
     ->expect('OpenAI\Laravel\ServiceProvider')
     ->toOnlyUse([
+        'GuzzleHttp\Client',
         'Illuminate\Support\ServiceProvider',
         'OpenAI\Laravel',
         'OpenAI',
