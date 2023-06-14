@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## v0.6.0 (2023-06-14)
+### Added
+- Make HTTP request timeout configurable ([#45](https://github.com/openai-php/laravel/pull/45))
+
+### Changed
+- Changed underlying `openai/client` package version from 0.5.3 to 0.6.0
+
 ## v0.5.3 (2023-06-07)
 ### Changed
 - Changed underlying `openai/client` package version from 0.5.1 to 0.5.3
