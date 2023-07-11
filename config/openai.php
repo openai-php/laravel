@@ -25,4 +25,26 @@ return [
     */
 
     'request_timeout' => env('OPENAI_REQUEST_TIMEOUT', 30),
+
+    /*
+    |--------------------------------------------------------------------------
+    | Maximum Retry Attempt
+    |--------------------------------------------------------------------------
+    |
+    | The retry attempt may be used to specify how many times retry when OpenAI server return error .
+    | By default, the library will try once.
+    */
+
+    'max_retry_attempt' => env('OPENAI_RETRY_ATTEMPT', 5),
+
+    /*
+    |--------------------------------------------------------------------------
+    | Retry Delay
+    |--------------------------------------------------------------------------
+    |
+    | Decides how long after a request should be repeated when a request fails.
+    | By default, resend the request immediately.
+    */
+
+    'retry_delay' => env('OPENAI_RETRY_DELAY'),
 ];

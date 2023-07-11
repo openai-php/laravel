@@ -32,7 +32,7 @@ final class ServiceProvider extends BaseServiceProvider implements DeferrablePro
             return OpenAI::factory()
                 ->withApiKey($apiKey)
                 ->withOrganization($organization)
-                ->withHttpClient(new \GuzzleHttp\Client(['timeout' => config('openai.request_timeout', 30)]))
+                ->withHttpClient(GuzzleTransporter::getClient())
                 ->make();
         });
 
