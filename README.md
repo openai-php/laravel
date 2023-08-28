@@ -51,6 +51,30 @@ $result = OpenAI::completions()->create([
 echo $result['choices'][0]['text']; // an open-source, widely-used, server-side scripting language.
 ```
 
+## Configuration
+
+Configuration is done via environment variables or directly in the configuration file (`config/openai.php`).
+
+### OpenAI API Key and Organization
+
+Specify your OpenAI API Key and organization. This will be
+used to authenticate with the OpenAI API - you can find your API key
+and organization on your OpenAI dashboard, at https://openai.com.
+
+```env
+OPENAI_API_KEY=
+OPENAI_ORGANIZATION=
+```
+
+### Request Timeout
+
+The timeout may be used to specify the maximum number of seconds to wait
+for a response. By default, the client will time out after 30 seconds.
+
+```env
+OPENAI_REQUEST_TIMEOUT=
+```
+
 ## Usage
 
 For usage examples, take a look at the [openai-php/client](https://github.com/openai-php/client) repository.
