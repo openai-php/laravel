@@ -43,12 +43,14 @@ Finally, you may use the `OpenAI` facade to access the OpenAI API:
 ```php
 use OpenAI\Laravel\Facades\OpenAI;
 
-$result = OpenAI::completions()->create([
-    'model' => 'text-davinci-003',
-    'prompt' => 'PHP is',
+$result = OpenAI::chat()->create([
+    'model' => 'gpt-3.5-turbo',
+    'messages' => [
+        ['role' => 'user', 'content' => 'Hello!'],
+    ],
 ]);
 
-echo $result['choices'][0]['text']; // an open-source, widely-used, server-side scripting language.
+echo $result->choices[0]->message->content; // Hello! How can I assist you today?
 ```
 
 ## Usage
