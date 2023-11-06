@@ -44,13 +44,37 @@ Finally, you may use the `OpenAI` facade to access the OpenAI API:
 use OpenAI\Laravel\Facades\OpenAI;
 
 $result = OpenAI::chat()->create([
-    'model' => 'gpt-3.5-turbo',
+    'model' => 'gpt-3.5-turbo-instruct',
     'messages' => [
         ['role' => 'user', 'content' => 'Hello!'],
     ],
 ]);
 
 echo $result->choices[0]->message->content; // Hello! How can I assist you today?
+```
+
+## Configuration
+
+Configuration is done via environment variables or directly in the configuration file (`config/openai.php`).
+
+### OpenAI API Key and Organization
+
+Specify your OpenAI API Key and organization. This will be
+used to authenticate with the OpenAI API - you can find your API key
+and organization on your OpenAI dashboard, at https://openai.com.
+
+```env
+OPENAI_API_KEY=
+OPENAI_ORGANIZATION=
+```
+
+### Request Timeout
+
+The timeout may be used to specify the maximum number of seconds to wait
+for a response. By default, the client will time out after 30 seconds.
+
+```env
+OPENAI_REQUEST_TIMEOUT=
 ```
 
 ## Usage
@@ -80,7 +104,7 @@ OpenAI::fake([
 ]);
 
 $completion = OpenAI::completions()->create([
-    'model' => 'text-davinci-003',
+    'model' => 'gpt-3.5-turbo-instruct',
     'prompt' => 'PHP is ',
 ]);
 
@@ -93,7 +117,7 @@ After the requests have been sent there are various methods to ensure that the e
 // assert completion create request was sent
 OpenAI::assertSent(Completions::class, function (string $method, array $parameters): bool {
     return $method === 'create' &&
-        $parameters['model'] === 'text-davinci-003' &&
+        $parameters['model'] === 'gpt-3.5-turbo-instruct' &&
         $parameters['prompt'] === 'PHP is ';
 });
 ```

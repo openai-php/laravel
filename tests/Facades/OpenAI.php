@@ -37,7 +37,7 @@ test('fake returns the given response', function () {
     ]);
 
     $completion = OpenAI::completions()->create([
-        'model' => 'text-davinci-003',
+        'model' => 'gpt-3.5-turbo-instruct',
         'prompt' => 'PHP is ',
     ]);
 
@@ -50,12 +50,12 @@ test('fake throws an exception if there is no more given response', function () 
     ]);
 
     OpenAI::completions()->create([
-        'model' => 'text-davinci-003',
+        'model' => 'gpt-3.5-turbo-instruct',
         'prompt' => 'PHP is ',
     ]);
 
     OpenAI::completions()->create([
-        'model' => 'text-davinci-003',
+        'model' => 'gpt-3.5-turbo-instruct',
         'prompt' => 'PHP is ',
     ]);
 })->expectExceptionMessage('No fake responses left');
@@ -74,7 +74,7 @@ test('append more fake responses', function () {
     ]);
 
     $completion = OpenAI::completions()->create([
-        'model' => 'text-davinci-003',
+        'model' => 'gpt-3.5-turbo-instruct',
         'prompt' => 'PHP is ',
     ]);
 
@@ -82,7 +82,7 @@ test('append more fake responses', function () {
         ->id->toBe('cmpl-1');
 
     $completion = OpenAI::completions()->create([
-        'model' => 'text-davinci-003',
+        'model' => 'gpt-3.5-turbo-instruct',
         'prompt' => 'PHP is ',
     ]);
 
@@ -96,13 +96,13 @@ test('fake can assert a request was sent', function () {
     ]);
 
     OpenAI::completions()->create([
-        'model' => 'text-davinci-003',
+        'model' => 'gpt-3.5-turbo-instruct',
         'prompt' => 'PHP is ',
     ]);
 
     OpenAI::assertSent(Completions::class, function (string $method, array $parameters): bool {
         return $method === 'create' &&
-            $parameters['model'] === 'text-davinci-003' &&
+            $parameters['model'] === 'gpt-3.5-turbo-instruct' &&
             $parameters['prompt'] === 'PHP is ';
     });
 });
@@ -114,7 +114,7 @@ test('fake throws an exception if a request was not sent', function () {
 
     OpenAI::assertSent(Completions::class, function (string $method, array $parameters): bool {
         return $method === 'create' &&
-            $parameters['model'] === 'text-davinci-003' &&
+            $parameters['model'] === 'gpt-3.5-turbo-instruct' &&
             $parameters['prompt'] === 'PHP is ';
     });
 })->expectException(ExpectationFailedException::class);
@@ -125,13 +125,13 @@ test('fake can assert a request was sent on the resource', function () {
     ]);
 
     OpenAI::completions()->create([
-        'model' => 'text-davinci-003',
+        'model' => 'gpt-3.5-turbo-instruct',
         'prompt' => 'PHP is ',
     ]);
 
     OpenAI::completions()->assertSent(function (string $method, array $parameters): bool {
         return $method === 'create' &&
-            $parameters['model'] === 'text-davinci-003' &&
+            $parameters['model'] === 'gpt-3.5-turbo-instruct' &&
             $parameters['prompt'] === 'PHP is ';
     });
 });
@@ -143,12 +143,12 @@ test('fake can assert a request was sent n times', function () {
     ]);
 
     OpenAI::completions()->create([
-        'model' => 'text-davinci-003',
+        'model' => 'gpt-3.5-turbo-instruct',
         'prompt' => 'PHP is ',
     ]);
 
     OpenAI::completions()->create([
-        'model' => 'text-davinci-003',
+        'model' => 'gpt-3.5-turbo-instruct',
         'prompt' => 'PHP is ',
     ]);
 
@@ -162,7 +162,7 @@ test('fake throws an exception if a request was not sent n times', function () {
     ]);
 
     OpenAI::completions()->create([
-        'model' => 'text-davinci-003',
+        'model' => 'gpt-3.5-turbo-instruct',
         'prompt' => 'PHP is ',
     ]);
 
@@ -181,7 +181,7 @@ test('fake throws an exception if a unexpected request was sent', function () {
     ]);
 
     OpenAI::completions()->create([
-        'model' => 'text-davinci-003',
+        'model' => 'gpt-3.5-turbo-instruct',
         'prompt' => 'PHP is ',
     ]);
 
@@ -208,7 +208,7 @@ test('fake throws an exception if any request was sent when non was expected', f
     ]);
 
     OpenAI::completions()->create([
-        'model' => 'text-davinci-003',
+        'model' => 'gpt-3.5-turbo-instruct',
         'prompt' => 'PHP is ',
     ]);
 
