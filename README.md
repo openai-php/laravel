@@ -44,7 +44,7 @@ Finally, you may use the `OpenAI` facade to access the OpenAI API:
 use OpenAI\Laravel\Facades\OpenAI;
 
 $result = OpenAI::chat()->create([
-    'model' => 'gpt-3.5-turbo-instruct',
+    'model' => 'gpt-3.5-turbo',
     'messages' => [
         ['role' => 'user', 'content' => 'Hello!'],
     ],
