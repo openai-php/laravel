@@ -44,7 +44,7 @@ Finally, you may use the `OpenAI` facade to access the OpenAI API:
 use OpenAI\Laravel\Facades\OpenAI;
 
 $result = OpenAI::completions()->create([
-    'model' => 'text-davinci-003',
+    'model' => 'gpt-3.5-turbo-instruct',
     'prompt' => 'PHP is',
 ]);
 
@@ -102,7 +102,7 @@ OpenAI::fake([
 ]);
 
 $completion = OpenAI::completions()->create([
-    'model' => 'text-davinci-003',
+    'model' => 'gpt-3.5-turbo-instruct',
     'prompt' => 'PHP is ',
 ]);
 
@@ -115,7 +115,7 @@ After the requests have been sent there are various methods to ensure that the e
 // assert completion create request was sent
 OpenAI::assertSent(Completions::class, function (string $method, array $parameters): bool {
     return $method === 'create' &&
-        $parameters['model'] === 'text-davinci-003' &&
+        $parameters['model'] === 'gpt-3.5-turbo-instruct' &&
         $parameters['prompt'] === 'PHP is ';
 });
 ```
