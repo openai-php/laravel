@@ -26,3 +26,20 @@ test('service providers')
         'config',
         'config_path',
     ]);
+
+test('guzzle transporter')
+    ->expect('OpenAI\Laravel\GuzzleTransporter')
+    ->toOnlyUse([
+        'Closure',
+        'GuzzleHttp\Client',
+        'GuzzleHttp\Exception\ConnectException',
+        'GuzzleHttp\Exception\RequestException',
+        'GuzzleHttp\HandlerStack',
+        'GuzzleHttp\Middleware',
+        'Psr\Http\Message\RequestInterface',
+        'Psr\Http\Message\ResponseInterface',
+        'RuntimeException',
+
+        // helpers...
+        'config',
+    ]);
