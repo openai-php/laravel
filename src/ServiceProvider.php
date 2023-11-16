@@ -10,6 +10,7 @@ use OpenAI;
 use OpenAI\Client;
 use OpenAI\Contracts\ClientContract;
 use OpenAI\Laravel\Exceptions\ApiKeyIsMissing;
+use OpenAI\Laravel\Exceptions\InvalidBaseUriException;
 
 /**
  * @internal
@@ -24,15 +25,19 @@ final class ServiceProvider extends BaseServiceProvider implements DeferrablePro
         $this->app->singleton(ClientContract::class, static function (): Client {
             $apiKey = config('openai.api_key');
             $organization = config('openai.organization');
-
+            $baseUri = config('openai.base_uri');
             if (! is_string($apiKey) || ($organization !== null && ! is_string($organization))) {
                 throw ApiKeyIsMissing::create();
+            }
+            if (! is_string($baseUri)) {
+                throw InvalidBaseUriException::create();
             }
 
             return OpenAI::factory()
                 ->withApiKey($apiKey)
                 ->withOrganization($organization)
                 ->withHttpClient(new \GuzzleHttp\Client(['timeout' => config('openai.request_timeout', 30)]))
+                ->withBaseUri($baseUri)
                 ->make();
         });
 

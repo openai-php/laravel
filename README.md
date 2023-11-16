@@ -77,6 +77,13 @@ for a response. By default, the client will time out after 30 seconds.
 OPENAI_REQUEST_TIMEOUT=
 ```
 
+### Custom API Endpoint
+If you want to use a local model compatible with the openai-api you can set the base url:
+
+```env
+OPENAI_BASE_URL=localhost:1234/v1/
+```
+
 ## Usage
 
 For usage examples, take a look at the [openai-php/client](https://github.com/openai-php/client) repository.
