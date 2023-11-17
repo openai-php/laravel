@@ -12,6 +12,7 @@ it('binds the client on the container', function () {
     $app->bind('config', fn () => new Repository([
         'openai' => [
             'api_key' => 'test',
+            'base_uri' => 'api.openai.com/v1/',
         ],
     ]));
 
@@ -26,6 +27,7 @@ it('binds the client on the container as singleton', function () {
     $app->bind('config', fn () => new Repository([
         'openai' => [
             'api_key' => 'test',
+            'base_uri' => 'api.openai.com/v1/',
         ],
     ]));
 

@@ -25,4 +25,17 @@ return [
     */
 
     'request_timeout' => env('OPENAI_REQUEST_TIMEOUT', 30),
+
+    /*
+    |--------------------------------------------------------------------------
+    | Base URL
+    |--------------------------------------------------------------------------
+    |
+    | This is the base URL used to make requests to the OpenAI API. Unless you
+    | are using a custom API endpoint, you should not need to change this.
+    | Make sure to omit the http(s):// prefix.
+    | Default is 'api.openai.com/v1'
+     */
+
+    'base_uri' => env('OPENAI_BASE_URL', 'api.openai.com/v1'),
 ];

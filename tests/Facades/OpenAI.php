@@ -13,6 +13,7 @@ it('resolves resources', function () {
     $app->bind('config', fn () => new Repository([
         'openai' => [
             'api_key' => 'test',
+            'base_uri' => 'api.openai.com/v1/',
         ],
     ]));
 
