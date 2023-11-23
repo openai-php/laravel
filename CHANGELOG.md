@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## v0.8.0 (2023-11-23)
+### Changed
+- Changed underlying `openai/client` package version from 0.7.8 to v0.8.0
+
 ## v0.8.0-beta.1 (2023-11-13)
 ### Changed
 - Changed underlying `openai/client` package version from 0.7.8 to v0.8.0-beta.1
