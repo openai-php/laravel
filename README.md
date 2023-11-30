@@ -25,7 +25,7 @@ First, install OpenAI via the [Composer](https://getcomposer.org/) package manag
 composer require openai-php/laravel
 ```
 
-Then execute the install command:
+Next, execute the install command:
 
 ```bash
 php artisan openai:install
@@ -33,7 +33,7 @@ php artisan openai:install
 
 This will create a `config/openai.php` configuration file in your project, which you can modify to your needs
 using environment variables.
-The environment variables for the OpenAI API key and organization id are already added to your `.env` file.
+Blank environment variables for the OpenAI API key and organization id are already appended to your `.env` file.
 
 ```env
 OPENAI_API_KEY=sk-...
