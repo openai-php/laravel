@@ -9,6 +9,7 @@ use Illuminate\Support\ServiceProvider as BaseServiceProvider;
 use OpenAI;
 use OpenAI\Client;
 use OpenAI\Contracts\ClientContract;
+use OpenAI\Laravel\Commands\InstallCommand;
 use OpenAI\Laravel\Exceptions\ApiKeyIsMissing;
 
 /**
@@ -49,6 +50,10 @@ final class ServiceProvider extends BaseServiceProvider implements DeferrablePro
         if ($this->app->runningInConsole()) {
             $this->publishes([
                 __DIR__.'/../config/openai.php' => config_path('openai.php'),
+            ]);
+
+            $this->commands([
+                InstallCommand::class,
             ]);
         }
     }
