@@ -17,9 +17,12 @@ test('service providers')
     ->expect('OpenAI\Laravel\ServiceProvider')
     ->toOnlyUse([
         'GuzzleHttp\Client',
+        'Illuminate\Container\Container',
         'Illuminate\Support\ServiceProvider',
+        'Livewire\Livewire',
         'OpenAI\Laravel',
         'OpenAI',
+        'Illuminate\Contracts\Events\Dispatcher',
         'Illuminate\Contracts\Support\DeferrableProvider',
 
         // helpers...

@@ -1,11 +1,13 @@
 <?php
 
 use Illuminate\Config\Repository;
+use Illuminate\Contracts\Events\Dispatcher;
 use OpenAI\Laravel\Facades\OpenAI;
 use OpenAI\Laravel\ServiceProvider;
 use OpenAI\Resources\Completions;
 use OpenAI\Responses\Completions\CreateResponse;
 use PHPUnit\Framework\ExpectationFailedException;
+use Psr\EventDispatcher\EventDispatcherInterface;
 
 it('resolves resources', function () {
     $app = app();
@@ -15,6 +17,13 @@ it('resolves resources', function () {
             'api_key' => 'test',
         ],
     ]));
+
+    $app->bind(Dispatcher::class, fn () => new class implements EventDispatcherInterface
+    {
+        public function dispatch(object $event)
+        {
+        }
+    });
 
     (new ServiceProvider($app))->register();
 
