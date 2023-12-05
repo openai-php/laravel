@@ -7,7 +7,7 @@ use OpenAI\Laravel\ServiceProvider;
 use OpenAI\Resources\Completions;
 use OpenAI\Responses\Completions\CreateResponse;
 use PHPUnit\Framework\ExpectationFailedException;
-use Psr\EventDispatcher\EventDispatcherInterface;
+use Tests\Fixtures\NullEventDispatcher;
 
 it('resolves resources', function () {
     $app = app();
@@ -18,12 +18,7 @@ it('resolves resources', function () {
         ],
     ]));
 
-    $app->bind(Dispatcher::class, fn () => new class implements EventDispatcherInterface
-    {
-        public function dispatch(object $event)
-        {
-        }
-    });
+    $app->bind(Dispatcher::class, fn () => new NullEventDispatcher());
 
     (new ServiceProvider($app))->register();
 

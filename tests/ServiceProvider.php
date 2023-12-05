@@ -6,17 +6,12 @@ use OpenAI\Client;
 use OpenAI\Contracts\ClientContract;
 use OpenAI\Laravel\Exceptions\ApiKeyIsMissing;
 use OpenAI\Laravel\ServiceProvider;
-use Psr\EventDispatcher\EventDispatcherInterface;
+use Tests\Fixtures\NullEventDispatcher;
 
 beforeEach(function () {
     $app = app();
 
-    $app->bind(Dispatcher::class, fn () => new class implements EventDispatcherInterface
-    {
-        public function dispatch(object $event)
-        {
-        }
-    });
+    $app->bind(Dispatcher::class, fn () => new NullEventDispatcher());
 });
 
 it('binds the client on the container', function () {
@@ -27,13 +22,6 @@ it('binds the client on the container', function () {
             'api_key' => 'test',
         ],
     ]));
-
-    $app->bind(DispatcherContract::class, fn () => new class implements DispatcherContract
-    {
-        public function dispatch(object $event): void
-        {
-        }
-    });
 
     (new ServiceProvider($app))->register();
 

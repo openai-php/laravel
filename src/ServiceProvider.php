@@ -12,6 +12,7 @@ use OpenAI;
 use OpenAI\Client;
 use OpenAI\Contracts\ClientContract;
 use OpenAI\Laravel\Commands\InstallCommand;
+use OpenAI\Laravel\Events\DispatcherDecorator;
 use OpenAI\Laravel\Exceptions\ApiKeyIsMissing;
 use OpenAI\Laravel\Pulse\Livewire\OpenAIRequestsCard;
 
@@ -38,7 +39,7 @@ final class ServiceProvider extends BaseServiceProvider
                 ->withOrganization($organization)
                 ->withHttpHeader('OpenAI-Beta', 'assistants=v1')
                 ->withHttpClient(new \GuzzleHttp\Client(['timeout' => config('openai.request_timeout', 30)]))
-                ->withEventDispatcher($container->make(DispatcherContract::class)) // @phpstan-ignore-line
+                ->withEventDispatcher(new DispatcherDecorator($container->make(DispatcherContract::class))) // @phpstan-ignore-line
                 ->make();
         });
 
