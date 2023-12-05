@@ -126,6 +126,51 @@ OpenAI::assertSent(Completions::class, function (string $method, array $paramete
 
 For more testing examples, take a look at the [openai-php/client](https://github.com/openai-php/client#testing) repository.
 
+## Laravel Pulse
+
+This package provides a [Laravel Pulse](https://pulse.laravel.com) card to show statistics about your OpenAI usage.
+
+The card supports two metrics:
+- **Requests per user**: Shows the number of requests per user.
+- **Requests per endpoint**: Shows the number of requests per endpoint.
+
+### Installation
+
+First, make sure Laravel Pulse is [installed](https://laravel.com/docs/10.x/pulse#installation).
+
+Next, you need to register the recorder in your `config/pulse.php` file:
+
+```php
+'recorders' => [
+    // ...
+
+    \OpenAI\Laravel\Pulse\Recorders\OpenAIRequests::class => [
+        'enabled' => env('PULSE_OPENAI_REQUESTS_ENABLED', true),
+        'sample_rate' => env('PULSE_OPENAI_REQUESTS_SAMPLE_RATE', 1),
+        'ignore' => [],
+        'groups' => [
+            '/(.*)\/(asst_|file-|ft-|msg_|run_|step_|thread_)[0-9a-zA-Z]*(.*)/' => '\1/\2*\3',
+        ],
+    ],
+],
+```
+
+### Usage
+
+Finally, add the card to your pulse `dashboard.blade.php` or any other Blade file.
+
+```blade
+<livewire:openai.pulse.requests />
+```
+
+If you want to be specific about the metric to show, you can pass it as `type`:
+
+```blade
+<livewire:openai.pulse.requests type="endpoint" />
+
+<livewire:openai.pulse.requests type="user" />
+```
+
 ---
 
 OpenAI PHP for Laravel is an open-sourced software licensed under the **[MIT license](https://opensource.org/licenses/MIT)**.
