@@ -7,6 +7,7 @@ namespace OpenAI\Laravel\Facades;
 use Illuminate\Support\Facades\Facade;
 use OpenAI\Contracts\ResponseContract;
 use OpenAI\Laravel\Testing\OpenAIFake;
+use OpenAI\Resources\Assistants;
 use OpenAI\Responses\StreamResponse;
 
 /**

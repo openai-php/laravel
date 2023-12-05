@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace OpenAI\Laravel;
 
+use Illuminate\Contracts\Events\Dispatcher as DispatcherContract;
 use Illuminate\Contracts\Support\DeferrableProvider;
 use Illuminate\Support\ServiceProvider as BaseServiceProvider;
 use OpenAI;
@@ -35,6 +36,7 @@ final class ServiceProvider extends BaseServiceProvider implements DeferrablePro
                 ->withOrganization($organization)
                 ->withHttpHeader('OpenAI-Beta', 'assistants=v1')
                 ->withHttpClient(new \GuzzleHttp\Client(['timeout' => config('openai.request_timeout', 30)]))
+                ->withEventDispatcher(resolve(DispatcherContract::class)) // @phpstan-ignore-line
                 ->make();
         });
 
