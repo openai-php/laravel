@@ -2,6 +2,32 @@
 
 return [
 
+    //默认服务商
+    'default' => env('DEFAULT_OPENAI_DRIVER', 'open_ai'),
+
+    //openai服务商
+    'open_ai' => [
+        'api_key' => env('OPENAI_SECRET_KEY'),
+        'organization' => env('OPENAI_ORGANIZATION'),
+    ],
+
+    //微软Azure服务商
+    'azure_open_ai' => [
+        'driver' => 'azure_open_ai',
+        'base_url' => env('AZURE_OPENAI_BASE_URL'),
+        'api_key' => env('AZURE_OPENAI_SECRET_KEY'),
+        'api_version' => env('AZURE_OPENAI_API_VERSION'),
+        'model' => 'gpt-3.5-turbo',
+        'models' => [
+            'text-embedding-ada-002' => 'text-embedding-ada-002',
+            'gpt-3.5-turbo' => 'gpt-35-turbo-0613',
+            'gpt-3.5-turbo-instruct' => 'gpt-35-turbo-instruct-0613',
+            'gpt-3.5-turbo-0613' => 'gpt-35-turbo-0613',
+            'gpt-3.5-turbo-16k' => 'gpt-35-turbo-16k-0613',
+            'gpt-4-1106-preview' => 'gpt-4-1106-preview',
+        ],
+    ],
+
     /*
     |--------------------------------------------------------------------------
     | OpenAI API Key and Organization

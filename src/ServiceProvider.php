@@ -17,19 +17,31 @@ use OpenAI\Laravel\Exceptions\ApiKeyIsMissing;
  */
 final class ServiceProvider extends BaseServiceProvider implements DeferrableProvider
 {
+    const AZURE_OPEN_AI = 'azure_open_ai';
+
     /**
      * Register any application services.
      */
     public function register(): void
     {
-        $this->app->singleton(ClientContract::class, static function (): Client {
-            $apiKey = config('openai.api_key');
-            $organization = config('openai.organization');
+        $this->app->singleton(ClientContract::class, static function () {
+
+            $apiKey = config('openai.open_ai.api_key');
+            $organization = config('openai.open_ai.organization');
+
+            $config = config('openai');
+            $default = $config['default'] ?? '';
+
+            // Azure OpenAI
+            if (isset($config[$default]) && $default == self::AZURE_OPEN_AI) {
+                return AzureOpenai::instance($config[$default]);
+            }
 
             if (! is_string($apiKey) || ($organization !== null && ! is_string($organization))) {
                 throw ApiKeyIsMissing::create();
             }
 
+            // OpenAI
             return OpenAI::factory()
                 ->withApiKey($apiKey)
                 ->withOrganization($organization)
