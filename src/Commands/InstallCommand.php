@@ -39,7 +39,7 @@ class InstallCommand extends Command
         $optionalEnv = $this->option('env') ?: '';
         $envFile = '.env';
         if ($optionalEnv) {
-            $envFile .= '.' . $optionalEnv;
+            $envFile .= '.'.$optionalEnv;
         }
         $this->addEnvKeys($envFile);
         $this->addEnvKeys('.env.example');
@@ -52,7 +52,7 @@ class InstallCommand extends Command
 
         View::render('components.badge', [
             'type' => 'INFO',
-            'content' => 'Open your ' . $envFile . ' and add your OpenAI API key and organization id.',
+            'content' => 'Open your '.$envFile.' and add your OpenAI API key and organization id.',
         ]);
 
         if ($wantsToSupport) {
