@@ -12,6 +12,7 @@ use OpenAI\Responses\StreamResponse;
 /**
  * @method static \OpenAI\Resources\Assistants assistants()
  * @method static \OpenAI\Resources\Audio audio()
+ * @method static \OpenAI\Resources\Batches batches()
  * @method static \OpenAI\Resources\Chat chat()
  * @method static \OpenAI\Resources\Completions completions()
  * @method static \OpenAI\Resources\Embeddings embeddings()
