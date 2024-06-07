@@ -15,9 +15,6 @@
 
 > **Note:** This repository contains the integration code of the **OpenAI PHP** for Laravel. If you want to use the **OpenAI PHP** client in a framework-agnostic way, take a look at the [openai-php/client](https://github.com/openai-php/client) repository.
 
-> **Looking for Assistants v2 support?**
-> 
-> Check out the [0.10.x](https://github.com/openai-php/laravel/releases/tag/v0.10.0-beta.1) release (beta)
 
 ## Get Started
 
