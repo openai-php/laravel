@@ -18,6 +18,7 @@ test('service providers')
     ->toOnlyUse([
         'GuzzleHttp\Client',
         'Illuminate\Support\ServiceProvider',
+        'Illuminate\Container\Container',
         'OpenAI\Laravel',
         'OpenAI',
         'Illuminate\Contracts\Support\DeferrableProvider',
