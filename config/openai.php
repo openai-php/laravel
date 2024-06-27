@@ -14,6 +14,8 @@ return [
 
     'api_key' => env('OPENAI_API_KEY'),
     'organization' => env('OPENAI_ORGANIZATION'),
+    // Custom OpenAi Url
+    'api_url' => env('OPENAI_URL','api.openai.com/v1'),
 
     /*
     |--------------------------------------------------------------------------
