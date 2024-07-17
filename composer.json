@@ -12,10 +12,10 @@
     "require": {
         "php": "^8.1.0",
         "guzzlehttp/guzzle": "^7.8.1",
-        "laravel/framework": "^9.46.0|^10.34.2|^11.0",
         "openai-php/client": "^v0.10.1"
     },
     "require-dev": {
+        "laravel/framework": "^9.46.0|^10.34.2|^11.0",
         "laravel/pint": "^1.13.6",
         "pestphp/pest": "^2.27.0",
         "pestphp/pest-plugin-arch": "^2.4.1",
