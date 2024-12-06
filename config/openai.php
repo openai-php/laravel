@@ -25,4 +25,16 @@ return [
     */
 
     'request_timeout' => env('OPENAI_REQUEST_TIMEOUT', 30),
+
+    /*
+    |--------------------------------------------------------------------------
+    | Base URI
+    |--------------------------------------------------------------------------
+    |
+    | The base URI is the root URL that the client will use to make requests.
+    | By default, the client will use the OpenAI API base URI.
+    | The schema can be specified (http or https).
+    | e.g.: http://localhost:11434/v1 for a local Ollama instance.
+    */
+    'base_uri' => env('OPENAI_BASE_URI', 'api.openai.com/v1'),
 ];

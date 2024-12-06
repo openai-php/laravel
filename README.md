@@ -80,6 +80,15 @@ for a response. By default, the client will time out after 30 seconds.
 OPENAI_REQUEST_TIMEOUT=
 ```
 
+### Base URI
+
+The base URI may be used to specify the base URI of the OpenAI API.
+By default, the client will use the OpenAI API base URI.
+
+```env
+OPENAI_BASE_URI=
+```
+
 ## Usage
 
 For usage examples, take a look at the [openai-php/client](https://github.com/openai-php/client) repository.
