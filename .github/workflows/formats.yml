@@ -10,8 +10,8 @@ jobs:
       fail-fast: true
       matrix:
         os: [ubuntu-latest]
-        php: [8.2]
-        dependency-version: [prefer-lowest, prefer-stable]
+        php: [8.4]
+        dependency-version: [prefer-stable]
 
     name: Formats P${{ matrix.php }} - ${{ matrix.os }} - ${{ matrix.dependency-version }}
 
