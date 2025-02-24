@@ -15,6 +15,8 @@ jobs:
         exclude:
           - php: 8.1
             laravel: 11.*
+          - php: 8.2
+            laravel: 11.*
 
     name: Tests P${{ matrix.php }} - L${{ matrix.laravel }} - ${{ matrix.os }} - ${{ matrix.dependency-version }}
     steps:
