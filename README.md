@@ -41,6 +41,12 @@ OPENAI_API_KEY=sk-...
 OPENAI_ORGANIZATION=org-...
 ```
 
+Optionally, you can also specify an OpenAI Project ID:
+
+```env
+OPENAI_PROJECT=proj_...
+```
+
 Finally, you may use the `OpenAI` facade to access the OpenAI API:
 
 ```php
