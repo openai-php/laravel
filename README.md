@@ -41,12 +41,6 @@ OPENAI_API_KEY=sk-...
 OPENAI_ORGANIZATION=org-...
 ```
 
-Optionally, you can also specify an OpenAI Project ID:
-
-```env
-OPENAI_PROJECT=proj_...
-```
-
 Finally, you may use the `OpenAI` facade to access the OpenAI API:
 
 ```php
@@ -75,6 +69,23 @@ and organization on your OpenAI dashboard, at https://openai.com.
 ```env
 OPENAI_API_KEY=
 OPENAI_ORGANIZATION=
+```
+
+### OpenAI Project
+
+For implementations that require a project ID, you can specify 
+the OpenAI project ID in your environment variables.
+
+```env
+OPENAI_PROJECT=proj_...
+```
+
+### OpenAI API Base URL
+
+The base URL for the OpenAI API. By default, this is set to `api.openai.com/v1`.
+
+```env
+OPENAI_BASE_URL=
 ```
 
 ### Request Timeout
