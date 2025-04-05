@@ -78,6 +78,10 @@ class InstallCommand extends Command
 
     private function addEnvKeys(string $envFile): void
     {
+        if (! is_writable(base_path($envFile)) {
+            return;
+        }
+            
         $fileContent = file_get_contents(base_path($envFile));
 
         if ($fileContent === false) {
