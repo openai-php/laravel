@@ -19,6 +19,7 @@ use OpenAI\Responses\StreamResponse;
  * @method static \OpenAI\Resources\Edits edits()
  * @method static \OpenAI\Resources\Files files()
  * @method static \OpenAI\Resources\FineTunes fineTunes()
+ * @method static \OpenAI\Resources\FineTuning fineTuning()
  * @method static \OpenAI\Resources\Images images()
  * @method static \OpenAI\Resources\Models models()
  * @method static \OpenAI\Resources\Moderations moderations()
