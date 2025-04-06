@@ -22,7 +22,7 @@ return [
     |
     | Here you may specify your OpenAI API project. This is used optionally in
     | situations where you are using a legacy user API key and need association
-    | with a project. THis is not required for the newer API keys.
+    | with a project. This is not required for the newer API keys.
     */
     'project' => env('OPENAI_PROJECT'),
 
