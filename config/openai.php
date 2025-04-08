@@ -17,6 +17,27 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | OpenAI API Project
+    |--------------------------------------------------------------------------
+    |
+    | Here you may specify your OpenAI API project. This is used optionally in
+    | situations where you are using a legacy user API key and need association
+    | with a project. This is not required for the newer API keys.
+    */
+    'project' => env('OPENAI_PROJECT'),
+
+    /*
+    |--------------------------------------------------------------------------
+    | OpenAI Base URL
+    |--------------------------------------------------------------------------
+    |
+    | Here you may specify your OpenAI API base URL used to make requests. This
+    | is needed if using a custom API endpoint. Defaults to: api.openai.com/v1
+    */
+    'base_uri' => env('OPENAI_BASE_URL'),
+
+    /*
+    |--------------------------------------------------------------------------
     | Request Timeout
     |--------------------------------------------------------------------------
     |

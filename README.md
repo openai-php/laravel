@@ -71,6 +71,23 @@ OPENAI_API_KEY=
 OPENAI_ORGANIZATION=
 ```
 
+### OpenAI Project
+
+For implementations that require a project ID, you can specify 
+the OpenAI project ID in your environment variables.
+
+```env
+OPENAI_PROJECT=proj_...
+```
+
+### OpenAI API Base URL
+
+The base URL for the OpenAI API. By default, this is set to `api.openai.com/v1`.
+
+```env
+OPENAI_BASE_URL=
+```
+
 ### Request Timeout
 
 The timeout may be used to specify the maximum number of seconds to wait
