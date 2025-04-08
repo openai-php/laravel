@@ -8,7 +8,7 @@
 </p>
 
 ------
-**OpenAI PHP** for Laravel is a community-maintained PHP API client that allows you to interact with the [Open AI API](https://beta.openai.com/docs/api-reference/introduction). If you or your business relies on this package, it's important to support the developers who have contributed their time and effort to create and maintain this valuable tool:
+**OpenAI PHP** for Laravel is a community-maintained PHP API client that allows you to interact with the [Open AI API](https://platform.openai.com/docs/api-reference/introduction). If you or your business relies on this package, it's important to support the developers who have contributed their time and effort to create and maintain this valuable tool:
 
 - Nuno Maduro: **[github.com/sponsors/nunomaduro](https://github.com/sponsors/nunomaduro)**
 - Sandro Gehri: **[github.com/sponsors/gehrisandro](https://github.com/sponsors/gehrisandro)**
@@ -47,7 +47,7 @@ Finally, you may use the `OpenAI` facade to access the OpenAI API:
 use OpenAI\Laravel\Facades\OpenAI;
 
 $result = OpenAI::chat()->create([
-    'model' => 'gpt-3.5-turbo',
+    'model' => 'gpt-4o-mini',
     'messages' => [
         ['role' => 'user', 'content' => 'Hello!'],
     ],
@@ -107,7 +107,7 @@ OpenAI::fake([
 ]);
 
 $completion = OpenAI::completions()->create([
-    'model' => 'gpt-3.5-turbo-instruct',
+    'model' => 'gpt-4o-mini',
     'prompt' => 'PHP is ',
 ]);
 
@@ -120,7 +120,7 @@ After the requests have been sent there are various methods to ensure that the e
 // assert completion create request was sent
 OpenAI::assertSent(Completions::class, function (string $method, array $parameters): bool {
     return $method === 'create' &&
-        $parameters['model'] === 'gpt-3.5-turbo-instruct' &&
+        $parameters['model'] === 'gpt-4o-mini' &&
         $parameters['prompt'] === 'PHP is ';
 });
 ```

@@ -10,20 +10,22 @@ jobs:
       matrix:
         os: [ubuntu-latest]
         php: [8.1, 8.2, 8.3, 8.4]
-        laravel: [11.*, 10.*, 9.*]
+        laravel: [12.*, 11.*, 10.*, 9.*]
         dependency-version: [prefer-lowest, prefer-stable]
         exclude:
           - php: 8.1
             laravel: 11.*
+          - php: 8.1
+            laravel: 12.*
 
     name: Tests P${{ matrix.php }} - L${{ matrix.laravel }} - ${{ matrix.os }} - ${{ matrix.dependency-version }}
     steps:
 
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
 
     - name: Cache dependencies
-      uses: actions/cache@v1
+      uses: actions/cache@v4
       with:
         path: ~/.composer/cache/files
         key: dependencies-php-${{ matrix.php }}-L${{ matrix.laravel }}-${{ matrix.dependency-version }}-composer-${{ hashFiles('composer.json') }}
