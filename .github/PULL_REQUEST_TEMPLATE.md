@@ -1,5 +1,5 @@
 <!--
-- Fill in the form below correctly. This will help the Pest team to understand the PR and also work on it.
+- Fill in the form below correctly. This will help the OpenAI PHP team to understand the PR and also work on it.
 -->
 
 ### What:
