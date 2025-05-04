@@ -9,16 +9,15 @@ jobs:
       fail-fast: true
       matrix:
         os: [ubuntu-latest]
-        php: [8.1, 8.2, 8.3, 8.4]
-        laravel: [12.*, 11.*, 10.*, 9.*]
+        php: [8.2, 8.3, 8.4]
+        laravel: [12.*]
+        pest: [3, 4]
         dependency-version: [prefer-lowest, prefer-stable]
         exclude:
-          - php: 8.1
-            laravel: 11.*
-          - php: 8.1
-            laravel: 12.*
+          - php: 8.2
+            pest: 4
 
-    name: Tests P${{ matrix.php }} - L${{ matrix.laravel }} - ${{ matrix.os }} - ${{ matrix.dependency-version }}
+    name: Tests P${{ matrix.php }} - P${{ matrix.pest }} - L${{ matrix.laravel }} - ${{ matrix.os }} - ${{ matrix.dependency-version }}
     steps:
 
     - name: Checkout
@@ -36,6 +35,12 @@ jobs:
         php-version: ${{ matrix.php }}
         extensions: dom, mbstring, zip
         coverage: none
+
+    - name: Require Pest Version
+      run: >
+        composer require
+        "pestphp/pest:${{ matrix.pest }}"
+        --no-interaction --no-update
 
     - name: Require Laravel Version
       run: >
