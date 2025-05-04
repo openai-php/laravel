@@ -40,13 +40,13 @@ jobs:
       run: >
         composer require
         "pestphp/pest:${{ matrix.pest }}"
-        --no-interaction --no-update
+        --no-interaction --no-update --with-all-dependencies
 
     - name: Require Laravel Version
       run: >
         composer require
         "laravel/framework:${{ matrix.laravel }}"
-        --no-interaction --no-update
+        --no-interaction --no-update --with-all-dependencies
 
     - name: Install Composer dependencies
       run: composer update --${{ matrix.dependency-version }} --no-interaction --prefer-dist
