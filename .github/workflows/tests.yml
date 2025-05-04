@@ -10,7 +10,7 @@ jobs:
       matrix:
         os: [ubuntu-latest]
         php: [8.2, 8.3, 8.4]
-        laravel: [12.*]
+        laravel: [12]
         pest: [3, 4]
         dependency-version: [prefer-lowest, prefer-stable]
         exclude:
@@ -39,13 +39,13 @@ jobs:
     - name: Require Pest Version
       run: >
         composer require
-        "pestphp/pest:${{ matrix.pest }}"
+        "pestphp/pest:^${{ matrix.pest }}"
         --no-interaction --no-update --with-all-dependencies
 
     - name: Require Laravel Version
       run: >
         composer require
-        "laravel/framework:${{ matrix.laravel }}"
+        "laravel/framework:^${{ matrix.laravel }}"
         --no-interaction --no-update --with-all-dependencies
 
     - name: Install Composer dependencies
