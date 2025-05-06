@@ -12,7 +12,7 @@
     "require": {
         "php": "^8.2.0",
         "guzzlehttp/guzzle": "^7.9.3",
-        "laravel/framework": "^12.12",
+        "laravel/framework": "^11.29|^12.12",
         "openai-php/client": "^0.12.0"
     },
     "require-dev": {
