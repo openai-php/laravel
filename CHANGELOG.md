@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## v0.13.0 (2025-05-14)
+### Added
+- Add facade for `responses` ([#147](https://github.com/openai-php/laravel/pull/147))
+
+### Changed
+- Changed underlying `openai/client` package version from 0.12.0 to 0.13.0
+- Restored Laravel 11 support.
+
 ## v0.12.0 (2025-05-04)
 ### Added
 - Add facade for `fineTuning` ([#125](https://github.com/openai-php/laravel/pull/125))
