@@ -26,6 +26,7 @@ use OpenAI\Responses\StreamResponse;
  * @method static \OpenAI\Resources\Responses responses()
  * @method static \OpenAI\Resources\Threads threads()
  * @method static \OpenAI\Resources\VectorStores vectorStores()
+ * @method static \OpenAI\Resources\VectorStoreFiles vectorStoreFiles()
  */
 final class OpenAI extends Facade
 {
