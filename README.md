@@ -55,6 +55,35 @@ $result = OpenAI::chat()->create([
 
 echo $result->choices[0]->message->content; // Hello! How can I assist you today?
 ```
+## Vision: Image Understanding with OpenAI
+
+With an image URL: You can use 'OpenAI' to understand and describe images by providing an image URL along with a prompt. Here's how to send a message that includes both text and an image using the OpenAI Laravel SDK:
+
+```php
+use OpenAI\Laravel\Facades\OpenAI;
+
+    // Define the prompt you want to send along with the image
+    $prompt = "What is in this image?";
+
+    // Provide accessible image URL
+    $img_url = "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/2023_06_08_Raccoon1.jpg/1599px-2023_06_08_Raccoon1.jpg";
+
+    $response = OpenAI::chat()->create([
+        'model' => 'gpt-4o',
+        'messages' => [
+            [
+                'role' => 'user',
+                'content' => [
+                    ['type' => 'text', 'text' => $prompt],
+                    ['type' => 'image_url', 'image_url' => ['url' => $img_url]],
+                ],
+            ],
+        ],
+    ]);
+
+    // Output the model's description of the image
+    echo $response->choices[0]->message->content; // "The image features a raccoon peeking"
+```
 
 ## Configuration
 
