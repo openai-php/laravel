@@ -15,6 +15,7 @@ use OpenAI\Responses\StreamResponse;
  * @method static \OpenAI\Resources\Batches batches()
  * @method static \OpenAI\Resources\Chat chat()
  * @method static \OpenAI\Resources\Completions completions()
+ * @method static \OpenAI\Resources\Containers containers()
  * @method static \OpenAI\Resources\Embeddings embeddings()
  * @method static \OpenAI\Resources\Edits edits()
  * @method static \OpenAI\Resources\Files files()
