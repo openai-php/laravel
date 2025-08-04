@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## v0.15.0 (2025-08-04)
+### Added
+- Add facade for `containers`. ([#161](https://github.com/openai-php/laravel/pull/161))
+
+### Changed
+- Changed underlying `openai/client` package version from 0.14.0 to 0.15.0
+
 ## v0.14.0 (2025-06-24)
 ### Added
 - Add facade for `realtime`. ([#156](https://github.com/openai-php/laravel/pull/156))
