@@ -46,14 +46,12 @@ Finally, you may use the `OpenAI` facade to access the OpenAI API:
 ```php
 use OpenAI\Laravel\Facades\OpenAI;
 
-$result = OpenAI::chat()->create([
-    'model' => 'gpt-4o-mini',
-    'messages' => [
-        ['role' => 'user', 'content' => 'Hello!'],
-    ],
+$result = OpenAI::responses()->create([
+    'model' => 'gpt-5',
+    'input' => 'Hello!',
 ]);
 
-echo $result->choices[0]->message->content; // Hello! How can I assist you today?
+echo $response->outputText; // Hello! How can I assist you today?
 ```
 
 ## Configuration
@@ -111,7 +109,7 @@ All responses are having a `fake()` method that allows you to easily create a re
 
 ```php
 use OpenAI\Laravel\Facades\OpenAI;
-use OpenAI\Responses\Completions\CreateResponse;
+use OpenAI\Responses\Responses\CreateResponse;
 
 OpenAI::fake([
     CreateResponse::fake([
@@ -123,21 +121,21 @@ OpenAI::fake([
     ]),
 ]);
 
-$completion = OpenAI::completions()->create([
-    'model' => 'gpt-4o-mini',
-    'prompt' => 'PHP is ',
+$response = OpenAI::responses()->create([
+    'model' => 'gpt-5',
+    'input' => 'PHP is ',
 ]);
 
-expect($completion['choices'][0]['text'])->toBe('awesome!');
+expect($response->outputText)->toBe('awesome!');
 ```
 
 After the requests have been sent there are various methods to ensure that the expected requests were sent:
 
 ```php
 // assert completion create request was sent
-OpenAI::assertSent(Completions::class, function (string $method, array $parameters): bool {
+OpenAI::assertSent(Responses::class, function (string $method, array $parameters): bool {
     return $method === 'create' &&
-        $parameters['model'] === 'gpt-4o-mini' &&
+        $parameters['model'] === 'gpt-5' &&
         $parameters['prompt'] === 'PHP is ';
 });
 ```
