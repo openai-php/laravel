@@ -46,7 +46,7 @@ Finally, you may use the `OpenAI` facade to access the OpenAI API:
 ```php
 use OpenAI\Laravel\Facades\OpenAI;
 
-$result = OpenAI::responses()->create([
+$response = OpenAI::responses()->create([
     'model' => 'gpt-5',
     'input' => 'Hello!',
 ]);
