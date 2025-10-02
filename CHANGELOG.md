@@ -4,10 +4,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## v0.17.0 (2025-10-02)
+### Added
+- Add facade for `conversations`. ([#173](https://github.com/openai-php/laravel/pull/173))
+
+### Changed
+- Changed underlying `openai/client` package version from 0.16.0 to 0.17.0
+
 ## v0.16.0 (2025-08-26)
 ### Changed
- - Changed underlying `openai/client` package version from 0.15.0 to 0.16.0
- - HTTP 429 now throw a `RateLimitException` instead of a generic `ErrorException`
+- Changed underlying `openai/client` package version from 0.15.0 to 0.16.0
+- HTTP 429 now throw a `RateLimitException` instead of a generic `ErrorException`
 
 ## v0.15.0 (2025-08-04)
 ### Added
