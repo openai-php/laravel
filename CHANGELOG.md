@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## v0.17.1 (2025-10-02)
+### Fixed
+- Removed hard-coded `OpenAI-Beta` header which broke Conversation API. ([#175](https://github.com/openai-php/laravel/pull/175))
+
 ## v0.17.0 (2025-10-02)
 ### Added
 - Add facade for `conversations`. ([#173](https://github.com/openai-php/laravel/pull/173))
