@@ -11,6 +11,7 @@ use OpenAI\Client;
 use OpenAI\Contracts\ClientContract;
 use OpenAI\Laravel\Commands\InstallCommand;
 use OpenAI\Laravel\Exceptions\ApiKeyIsMissing;
+use OpenAI\Laravel\Http\Adapters\GuzzleHttpAdapter;
 
 /**
  * @internal
@@ -36,7 +37,7 @@ final class ServiceProvider extends BaseServiceProvider implements DeferrablePro
                 ->withApiKey($apiKey)
                 ->withOrganization($organization)
                 ->withHttpHeader('OpenAI-Beta', 'assistants=v2')
-                ->withHttpClient(new \GuzzleHttp\Client(['timeout' => config('openai.request_timeout', 30)]));
+                ->withHttpClient(GuzzleHttpAdapter::timeout(config('openai.request_timeout', 30)));
 
             if (is_string($project)) {
                 $client->withProject($project);
