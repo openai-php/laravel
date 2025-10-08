@@ -132,6 +132,8 @@ expect($response->outputText)->toBe('awesome!');
 After the requests have been sent there are various methods to ensure that the expected requests were sent:
 
 ```php
+use OpenAI\Resources\Responses;
+
 // assert completion create request was sent
 OpenAI::assertSent(Responses::class, function (string $method, array $parameters): bool {
     return $method === 'create' &&
