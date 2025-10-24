@@ -6,6 +6,7 @@ namespace OpenAI\Laravel\Http;
 
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Promise\PromiseInterface;
+use OpenAI\Laravel\Http\Handlers\HttpEvent;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 
@@ -31,7 +32,7 @@ class Handler
     /**
      * Whether Laravel HTTP events should be dispatched.
      */
-    public static function shouldEvent(bool $enabled = true)
+    public static function shouldEvent(bool $enabled = true): void
     {
         static::$shouldEvent = $enabled;
     }
@@ -116,7 +117,12 @@ class Handler
     {
         $handlerStack = $this->getHandlerStack();
 
-        // handler the defult event / logger
+        // handler to dispatches the  event / logger
+        if ($this->isEventEnabled()) {
+            $handlerStack->push(HttpEvent::request(), 'request-event');
+            $handlerStack->push(HttpEvent::failure(), 'failure-event');
+            $handlerStack->push(HttpEvent::response(), 'response-event');
+        }
 
         // Pass the stack directly to handle()
         return $this->handle($handlerStack, $request, $config);
