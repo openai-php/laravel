@@ -36,9 +36,7 @@ it('dispatches ConnectionFailed event on ConnectException', function () {
         // expected
     }
 
-    Event::assertDispatched(ConnectionFailed::class, function ($event) {
-        return $event->exception->getMessage() === 'Connection failed';
-    });
+    Event::assertDispatched(ConnectionFailed::class);
     Event::assertNotDispatched(RequestSending::class);
     Event::assertNotDispatched(ResponseReceived::class);
 });

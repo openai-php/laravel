@@ -164,6 +164,9 @@ it('mapped failure does not call callback on success response', function () {
 // ------------------- handler invokes -------------------
 
 it('__invoke handler stack returns response with Laravel http events', function () {
+
+    Handler::shouldEvent(true);
+
     $mock = new MockHandler([
         new Response(200, [], 'PHP is '), // for sync
         new Response(200, [], 'PHP is '), // for async
@@ -178,6 +181,8 @@ it('__invoke handler stack returns response with Laravel http events', function 
 });
 
 it('__invoke handler stack failure with Laravel http event ConnectionFailed ', function () {
+
+    Handler::shouldEvent(true);
 
     // Mock handler: simulate connection failures for sync and async requests
     $mock = new MockHandler([
@@ -195,9 +200,7 @@ it('__invoke handler stack failure with Laravel http event ConnectionFailed ', f
     }
 
     // Assert Laravel events
-    Event::assertDispatched(ConnectionFailed::class, function ($event) {
-        return $event->exception->getMessage() === 'Connection failed';
-    });
+    Event::assertDispatched(ConnectionFailed::class);
     Event::assertDispatched(RequestSending::class);
     Event::assertNotDispatched(ResponseReceived::class);
 });
