@@ -9,13 +9,15 @@ jobs:
       fail-fast: true
       matrix:
         os: [ubuntu-latest]
-        php: [8.2, 8.3, 8.4]
+        php: [8.2, 8.3, 8.4, 8.5]
         laravel: [11, 12]
         pest: [3, 4]
         dependency-version: [prefer-lowest, prefer-stable]
         exclude:
           - php: 8.2
             pest: 4
+          - php: 8.5
+            pest: 3
 
     name: Tests P${{ matrix.php }} - P${{ matrix.pest }} - L${{ matrix.laravel }} - ${{ matrix.os }} - ${{ matrix.dependency-version }}
     steps:
