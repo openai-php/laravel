@@ -6,3 +6,4 @@
 /vendor/
 *.swp
 *.swo
+.idea/

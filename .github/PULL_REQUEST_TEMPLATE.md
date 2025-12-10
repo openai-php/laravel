@@ -1,0 +1,17 @@
+<!--
+- Fill in the form below correctly. This will help the OpenAI PHP team to understand the PR and also work on it.
+-->
+
+### What:
+
+- [ ] Bug Fix
+- [ ] New Feature
+- [ ] Docs
+
+### Description:
+
+<!-- describe what your PR is solving -->
+
+### Related:
+
+<!-- link to the issue(s) your PR is solving. If it doesn't exist, remove the "Related" section. -->

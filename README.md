@@ -8,7 +8,7 @@
 </p>
 
 ------
-**OpenAI PHP** for Laravel is a community-maintained PHP API client that allows you to interact with the [Open AI API](https://beta.openai.com/docs/api-reference/introduction). If you or your business relies on this package, it's important to support the developers who have contributed their time and effort to create and maintain this valuable tool:
+**OpenAI PHP** for Laravel is a community-maintained PHP API client that allows you to interact with the [Open AI API](https://platform.openai.com/docs/api-reference/introduction). If you or your business relies on this package, it's important to support the developers who have contributed their time and effort to create and maintain this valuable tool:
 
 - Nuno Maduro: **[github.com/sponsors/nunomaduro](https://github.com/sponsors/nunomaduro)**
 - Sandro Gehri: **[github.com/sponsors/gehrisandro](https://github.com/sponsors/gehrisandro)**
@@ -18,7 +18,7 @@
 
 ## Get Started
 
-> **Requires [PHP 8.1+](https://php.net/releases/)**
+> **Requires [PHP 8.2+](https://www.php.net/releases/)**
 
 First, install OpenAI via the [Composer](https://getcomposer.org/) package manager:
 
@@ -46,14 +46,12 @@ Finally, you may use the `OpenAI` facade to access the OpenAI API:
 ```php
 use OpenAI\Laravel\Facades\OpenAI;
 
-$result = OpenAI::chat()->create([
-    'model' => 'gpt-3.5-turbo',
-    'messages' => [
-        ['role' => 'user', 'content' => 'Hello!'],
-    ],
+$response = OpenAI::responses()->create([
+    'model' => 'gpt-5',
+    'input' => 'Hello!',
 ]);
 
-echo $result->choices[0]->message->content; // Hello! How can I assist you today?
+echo $response->outputText; // Hello! How can I assist you today?
 ```
 
 ## Configuration
@@ -69,6 +67,23 @@ and organization on your OpenAI dashboard, at https://openai.com.
 ```env
 OPENAI_API_KEY=
 OPENAI_ORGANIZATION=
+```
+
+### OpenAI Project
+
+For implementations that require a project ID, you can specify 
+the OpenAI project ID in your environment variables.
+
+```env
+OPENAI_PROJECT=proj_...
+```
+
+### OpenAI API Base URL
+
+The base URL for the OpenAI API. By default, this is set to `api.openai.com/v1`.
+
+```env
+OPENAI_BASE_URL=
 ```
 
 ### Request Timeout
@@ -94,7 +109,7 @@ All responses are having a `fake()` method that allows you to easily create a re
 
 ```php
 use OpenAI\Laravel\Facades\OpenAI;
-use OpenAI\Responses\Completions\CreateResponse;
+use OpenAI\Responses\Responses\CreateResponse;
 
 OpenAI::fake([
     CreateResponse::fake([
@@ -106,21 +121,23 @@ OpenAI::fake([
     ]),
 ]);
 
-$completion = OpenAI::completions()->create([
-    'model' => 'gpt-3.5-turbo-instruct',
-    'prompt' => 'PHP is ',
+$response = OpenAI::responses()->create([
+    'model' => 'gpt-5',
+    'input' => 'PHP is ',
 ]);
 
-expect($completion['choices'][0]['text'])->toBe('awesome!');
+expect($response->outputText)->toBe('awesome!');
 ```
 
 After the requests have been sent there are various methods to ensure that the expected requests were sent:
 
 ```php
+use OpenAI\Resources\Responses;
+
 // assert completion create request was sent
-OpenAI::assertSent(Completions::class, function (string $method, array $parameters): bool {
+OpenAI::assertSent(Responses::class, function (string $method, array $parameters): bool {
     return $method === 'create' &&
-        $parameters['model'] === 'gpt-3.5-turbo-instruct' &&
+        $parameters['model'] === 'gpt-5' &&
         $parameters['prompt'] === 'PHP is ';
 });
 ```

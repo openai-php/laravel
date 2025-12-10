@@ -10,17 +10,17 @@
         }
     ],
     "require": {
-        "php": "^8.1.0",
-        "guzzlehttp/guzzle": "^7.8.1",
-        "laravel/framework": "^9.46.0|^10.34.2|^11.0",
-        "openai-php/client": "^v0.10.1"
+        "php": "^8.2.0",
+        "guzzlehttp/guzzle": "^7.9.3",
+        "laravel/framework": "^11.29|^12.12",
+        "openai-php/client": "^0.18.0"
     },
     "require-dev": {
-        "laravel/pint": "^1.13.6",
-        "pestphp/pest": "^2.27.0",
-        "pestphp/pest-plugin-arch": "^2.4.1",
-        "phpstan/phpstan": "^1.10.47",
-        "symfony/var-dumper": "^6.4.0|^7.0.1"
+        "laravel/pint": "^1.22.0",
+        "pestphp/pest": "^3.8.2|^4.0.0",
+        "pestphp/pest-plugin-arch": "^3.1.1|^4.0.0",
+        "phpstan/phpstan": "^2.1",
+        "symfony/var-dumper": "^7.2.6"
     },
     "autoload": {
         "psr-4": {
@@ -51,7 +51,6 @@
     },
     "scripts": {
         "lint": "pint -v",
-        "refactor": "rector --debug",
         "test:lint": "pint --test -v",
         "test:types": "phpstan analyse --ansi",
         "test:unit": "pest --colors=always",

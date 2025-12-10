@@ -4,6 +4,63 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## v0.18.0 (2025-10-31)
+### Changed
+- Changed underlying `openai/client` package version from 0.17.0 to 0.18.0
+
+## v0.17.1 (2025-10-02)
+### Fixed
+- Removed hard-coded `OpenAI-Beta` header which broke Conversation API. ([#175](https://github.com/openai-php/laravel/pull/175))
+
+## v0.17.0 (2025-10-02)
+### Added
+- Add facade for `conversations`. ([#173](https://github.com/openai-php/laravel/pull/173))
+
+### Changed
+- Changed underlying `openai/client` package version from 0.16.0 to 0.17.0
+
+## v0.16.0 (2025-08-26)
+### Changed
+- Changed underlying `openai/client` package version from 0.15.0 to 0.16.0
+- HTTP 429 now throw a `RateLimitException` instead of a generic `ErrorException`
+
+## v0.15.0 (2025-08-04)
+### Added
+- Add facade for `containers`. ([#161](https://github.com/openai-php/laravel/pull/161))
+
+### Changed
+- Changed underlying `openai/client` package version from 0.14.0 to 0.15.0
+
+## v0.14.0 (2025-06-24)
+### Added
+- Add facade for `realtime`. ([#156](https://github.com/openai-php/laravel/pull/156))
+
+### Changed
+- Changed underlying `openai/client` package version from 0.13.0 to 0.14.0
+
+## v0.13.0 (2025-05-14)
+### Added
+- Add facade for `responses` ([#147](https://github.com/openai-php/laravel/pull/147))
+
+### Changed
+- Changed underlying `openai/client` package version from 0.12.0 to 0.13.0
+- Restored Laravel 11 support.
+
+## v0.12.0 (2025-05-04)
+### Added
+- Add facade for `fineTuning` ([#125](https://github.com/openai-php/laravel/pull/125))
+- Make base url configurable ([#144](https://github.com/openai-php/laravel/pull/144))
+
+### Changed
+- Changed underlying `openai/client` package version from 0.11.0 to 0.12.0
+
+### Removed
+- Removed support for PHP 8.1
+
+## v0.11.0 (2025-02-24)
+### Added
+- Add support for Laravel 12 ([#137](https://github.com/openai-php/laravel/pull/137))
+
 ## v0.10.1 (2024-06-06)
 ### Changed
 - Changed underlying `openai/client` package version from 0.9.1 to v0.10.1
