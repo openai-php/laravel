@@ -60,14 +60,26 @@ return [
 
         /*
         |--------------------------------------------------------------------------
-        | Webhook URI
+        | Webhook URI / Subdomain
         |--------------------------------------------------------------------------
         |
         | This value is the URI path where OpenAI will send webhook requests to.
         | You may change this path to anything you like. Make sure to update
         | your OpenAI webhook settings to match this URI.
+        | If necessary, you may also specify a custom domain for the webhook route.
         */
         'uri' => env('OPENAI_WEBHOOK_URI', '/openai/webhook'),
+        'domain' => env('OPENAI_WEBHOOK_DOMAIN'),
+
+        /*
+        |--------------------------------------------------------------------------
+        | Webhook Middleware
+        |--------------------------------------------------------------------------
+        | Here you may specify the middleware that will be applied to
+        | the OpenAI webhook route.
+        | Note that the signature verification middleware is always applied.
+        */
+        'middleware' => env('OPENAI_WEBHOOK_MIDDLEWARE', 'web'),
 
         /*
         |--------------------------------------------------------------------------
