@@ -21,6 +21,9 @@
          displayDetailsOnTestsThatTriggerNotices="true"
          displayDetailsOnTestsThatTriggerWarnings="true"
 >
+    <php>
+        <env name="APP_KEY" value="base64:dxPp4telCysptcFUIG6Vf2Jm8LXtTixZzsBMPYPZl8I="/>
+    </php>
     <testsuites>
         <testsuite name="Default Test Suite">
             <directory suffix=".php">./tests</directory>
