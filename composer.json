@@ -13,10 +13,12 @@
         "php": "^8.2.0",
         "guzzlehttp/guzzle": "^7.9.3",
         "laravel/framework": "^11.29|^12.12",
-        "openai-php/client": "^0.18.0"
+        "openai-php/client": "dev-main",
+        "symfony/psr-http-message-bridge": "^8.0.0"
     },
     "require-dev": {
         "laravel/pint": "^1.22.0",
+        "orchestra/testbench": "^10.8.0",
         "pestphp/pest": "^3.8.2|^4.0.0",
         "pestphp/pest-plugin-arch": "^3.1.1|^4.0.0",
         "phpstan/phpstan": "^2.1",

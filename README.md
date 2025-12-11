@@ -144,6 +144,47 @@ OpenAI::assertSent(Responses::class, function (string $method, array $parameters
 
 For more testing examples, take a look at the [openai-php/client](https://github.com/openai-php/client#testing) repository.
 
+## Webhooks
+
+You can easily handle OpenAI webhooks using the built-in webhook receiver. Start by enabling the webhook receiver:
+
+```env
+OPENAI_WEBHOOKS_ENABLED=true
+```
+
+Register the webhook on your OpenAI dashboard, at https://openai.com.
+
+### Webhook Endpoint
+
+By default, the webhook endpoint is configured to `/openai/webhook`. You can customize this URL by changing the `openai.webhook.path` configuration value.
+
+```env
+OPENAI_WEBHOOK_URI=/openai/webhook
+```
+
+### Webhook Signing Secret
+
+Then, add your webhook signing secret to your `.env` file:
+
+```env
+OPENAI_WEBHOOK_SECRET=whsec_...
+```
+
+Now you're ready to handle incoming webhooks. All events received will be dispatched as Laravel events, which you can listen to in your application.
+
+```php
+use OpenAI\Laravel\Events\WebhookReceived;
+use Illuminate\Support\Facades\Event;
+
+Event::listen(WebhookReceived::class, function (WebhookReceived $event) {
+    if ($event->type === WebhookEventType::ResponseCompleted) {
+        $payload = $event->payload;
+        
+        // Handle the completed response...
+    }
+});
+```
+
 ---
 
 OpenAI PHP for Laravel is an open-sourced software licensed under the **[MIT license](https://opensource.org/licenses/MIT)**.

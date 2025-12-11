@@ -46,4 +46,50 @@ return [
     */
 
     'request_timeout' => env('OPENAI_REQUEST_TIMEOUT', 30),
+
+    'webhook' => [
+        /*
+        |--------------------------------------------------------------------------
+        | Webhook
+        |--------------------------------------------------------------------------
+        | This option controls whether the OpenAI webhook endpoint is
+        | enabled. Set this to true to enable automatic handling of webhook
+        | requests from OpenAI.
+        */
+        'enabled' => env('OPENAI_WEBHOOK_ENABLED', false),
+
+        /*
+        |--------------------------------------------------------------------------
+        | Webhook URI / Subdomain
+        |--------------------------------------------------------------------------
+        |
+        | This value is the URI path where OpenAI will send webhook requests to.
+        | You may change this path to anything you like. Make sure to update
+        | your OpenAI webhook settings to match this URI.
+        | If necessary, you may also specify a custom domain for the webhook route.
+        */
+        'uri' => env('OPENAI_WEBHOOK_URI', '/openai/webhook'),
+        'domain' => env('OPENAI_WEBHOOK_DOMAIN'),
+
+        /*
+        |--------------------------------------------------------------------------
+        | Webhook Middleware
+        |--------------------------------------------------------------------------
+        | Here you may specify the middleware that will be applied to
+        | the OpenAI webhook route.
+        | Note that the signature verification middleware is always applied.
+        */
+        'middleware' => env('OPENAI_WEBHOOK_MIDDLEWARE', 'web'),
+
+        /*
+        |--------------------------------------------------------------------------
+        | Webhook Signing secret
+        |--------------------------------------------------------------------------
+        |
+        | This value is the signing secret used to verify incoming webhook
+        | requests from OpenAI. You can find this secret in your OpenAI
+        | dashboard, in the webhook settings for your application.
+        */
+        'secret' => env('OPENAI_WEBHOOK_SECRET'),
+    ],
 ];
