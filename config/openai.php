@@ -46,4 +46,15 @@ return [
     */
 
     'request_timeout' => env('OPENAI_REQUEST_TIMEOUT', 30),
+
+    /*
+    |--------------------------------------------------------------------------
+    | HTTP Handler
+    |--------------------------------------------------------------------------
+    |
+    | Define a custom HTTP handler (class-string or callable) for OpenAI requests.
+    | Useful for adding Laravel Http Events, logging, or retries via Guzzle HandlerStack.
+    | Base Handler: OpenAI\Laravel\Http\Handler::class
+    */
+    'http_handler' => env('OPENAI_HTTP_HANDLER', null),
 ];
