@@ -14,13 +14,14 @@ jobs:
         pest: [3, 4]
         dependency-version: [prefer-lowest, prefer-stable]
         exclude:
+          - laravel: 13
+            php: 8.2
+          - laravel: 13
+            pest: 3
           - php: 8.2
             pest: 4
           - php: 8.5
             pest: 3
-          - laravel: 13
-            pest: 3
-            php: 8.2
 
     name: Tests P${{ matrix.php }} - P${{ matrix.pest }} - L${{ matrix.laravel }} - ${{ matrix.os }} - ${{ matrix.dependency-version }}
     steps:
