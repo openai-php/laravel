@@ -10,12 +10,13 @@ jobs:
       matrix:
         os: [ubuntu-latest]
         php: [8.2, 8.3, 8.4, 8.5]
-        laravel: [11, 12]
+        laravel: [11, 12, 13]
         pest: [3, 4]
         dependency-version: [prefer-lowest, prefer-stable]
         exclude:
           - php: 8.2
             pest: 4
+            laravel: 13
           - php: 8.5
             pest: 3
 
