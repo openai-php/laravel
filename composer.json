@@ -1,8 +1,21 @@
 {
     "name": "openai-php/laravel",
     "description": "OpenAI PHP for Laravel is a supercharged PHP API client that allows you to interact with the Open AI API",
-    "keywords": ["laravel","php", "openai", "sdk", "codex", "GPT-3", "DALL-E", "api", "client", "natural", "language", "processing"],
     "license": "MIT",
+    "keywords": [
+        "laravel",
+        "php",
+        "openai",
+        "sdk",
+        "codex",
+        "GPT-3",
+        "DALL-E",
+        "api",
+        "client",
+        "natural",
+        "language",
+        "processing"
+    ],
     "authors": [
         {
             "name": "Nuno Maduro",
@@ -12,16 +25,18 @@
     "require": {
         "php": "^8.2.0",
         "guzzlehttp/guzzle": "^7.9.3",
-        "laravel/framework": "^11.29|^12.12",
+        "laravel/framework": "^11.29 || ^12.12 || ^13.0",
         "openai-php/client": "^0.19.0"
     },
     "require-dev": {
         "laravel/pint": "^1.22.0",
-        "pestphp/pest": "^3.8.2|^4.0.0",
-        "pestphp/pest-plugin-arch": "^3.1.1|^4.0.0",
+        "pestphp/pest": "^3.8.2 || ^4.0.0",
+        "pestphp/pest-plugin-arch": "^3.1.1 || ^4.0.0",
         "phpstan/phpstan": "^2.1",
         "symfony/var-dumper": "^7.2.6"
     },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "autoload": {
         "psr-4": {
             "OpenAI\\Laravel\\": "src/"
@@ -32,15 +47,13 @@
             "Tests\\": "tests/"
         }
     },
-    "minimum-stability": "dev",
-    "prefer-stable": true,
     "config": {
-        "sort-packages": true,
-        "preferred-install": "dist",
         "allow-plugins": {
             "pestphp/pest-plugin": true,
             "php-http/discovery": true
-        }
+        },
+        "preferred-install": "dist",
+        "sort-packages": true
     },
     "extra": {
         "laravel": {
@@ -51,13 +64,13 @@
     },
     "scripts": {
         "lint": "pint -v",
-        "test:lint": "pint --test -v",
-        "test:types": "phpstan analyse --ansi",
-        "test:unit": "pest --colors=always",
         "test": [
             "@test:lint",
             "@test:types",
             "@test:unit"
-        ]
+        ],
+        "test:lint": "pint --test -v",
+        "test:types": "phpstan analyse --ansi",
+        "test:unit": "pest --colors=always"
     }
 }
