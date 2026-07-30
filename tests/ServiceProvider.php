@@ -49,6 +49,26 @@ it('requires an api key', function () {
     'The OpenAI API Key is missing. Please publish the [openai.php] configuration file and set the [api_key].',
 );
 
+it('requires a non-empty api key', function (string $apiKey) {
+    $app = app();
+
+    $app->bind('config', fn () => new Repository([
+        'openai' => [
+            'api_key' => $apiKey,
+        ],
+    ]));
+
+    (new ServiceProvider($app))->register();
+
+    $app->get(Client::class);
+})->with([
+    'empty string' => '',
+    'blank string' => '   ',
+])->throws(
+    ApiKeyIsMissing::class,
+    'The OpenAI API Key is missing. Please publish the [openai.php] configuration file and set the [api_key].',
+);
+
 it('provides', function () {
     $app = app();
 

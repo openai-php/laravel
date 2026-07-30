@@ -28,7 +28,11 @@ final class ServiceProvider extends BaseServiceProvider implements DeferrablePro
             $project = config('openai.project');
             $baseUri = config('openai.base_uri');
 
-            if (! is_string($apiKey) || ($organization !== null && ! is_string($organization))) {
+            if (is_string($apiKey)) {
+                $apiKey = trim($apiKey);
+            }
+
+            if ((! is_string($apiKey) || $apiKey === '') || ($organization !== null && ! is_string($organization))) {
                 throw ApiKeyIsMissing::create();
             }
 
