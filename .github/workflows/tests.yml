@@ -17,6 +17,10 @@ jobs:
         guzzle: [7, 8]
         dependency-version: [prefer-lowest, prefer-stable]
         exclude:
+          - laravel: 11
+            guzzle: 8
+          - laravel: 12
+            guzzle: 8
           - laravel: 13
             php: 8.2
           - laravel: 13
