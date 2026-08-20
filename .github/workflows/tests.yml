@@ -14,13 +14,8 @@ jobs:
         php: [8.2, 8.3, 8.4, 8.5]
         laravel: [11, 12, 13]
         pest: [3, 4]
-        guzzle: [7, 8]
         dependency-version: [prefer-lowest, prefer-stable]
         exclude:
-          - laravel: 11
-            guzzle: 8
-          - laravel: 12
-            guzzle: 8
           - laravel: 13
             php: 8.2
           - laravel: 13
@@ -30,7 +25,7 @@ jobs:
           - php: 8.5
             pest: 3
 
-    name: Tests P${{ matrix.php }} - P${{ matrix.pest }} - L${{ matrix.laravel }} - G${{ matrix.guzzle }} - ${{ matrix.os }} - ${{ matrix.dependency-version }}
+    name: Tests P${{ matrix.php }} - P${{ matrix.pest }} - L${{ matrix.laravel }} - ${{ matrix.os }} - ${{ matrix.dependency-version }}
     steps:
 
     - name: Checkout
@@ -62,7 +57,7 @@ jobs:
         --no-interaction --no-update --with-all-dependencies
 
     - name: Install Composer dependencies
-      run: composer update --${{ matrix.dependency-version }} --no-interaction --prefer-dist --with="guzzlehttp/guzzle:^${{ matrix.guzzle }}"
+      run: composer update --${{ matrix.dependency-version }} --no-interaction --prefer-dist
 
     - name: Integration Tests
       run: php ./vendor/bin/pest
