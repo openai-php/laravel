@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## v0.22.0 (2026-10-31)
+### Added
+- Added facades for Skills, Vaults, Decisions and Agents API. ([#211](https://github.com/openai-php/laravel/pull/211))
+
+### Changed
+- Changed underlying `openai/client` package version from 0.21.0 to 0.22.0
+
 ## v0.21.0 (2026-09-17)
 ### Changed
 - Changed underlying `openai/client` package version from 0.20.0 to 0.21.0
