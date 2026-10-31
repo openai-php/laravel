@@ -10,6 +10,7 @@ use OpenAI\Laravel\Testing\OpenAIFake;
 use OpenAI\Responses\StreamResponse;
 
 /**
+ * @method static \OpenAI\Resources\Agents agents()
  * @method static \OpenAI\Resources\Assistants assistants()
  * @method static \OpenAI\Resources\Audio audio()
  * @method static \OpenAI\Resources\Batches batches()
@@ -17,6 +18,7 @@ use OpenAI\Responses\StreamResponse;
  * @method static \OpenAI\Resources\Completions completions()
  * @method static \OpenAI\Resources\Containers containers()
  * @method static \OpenAI\Resources\Conversations conversations()
+ * @method static \OpenAI\Resources\Decisions decisions()
  * @method static \OpenAI\Resources\Embeddings embeddings()
  * @method static \OpenAI\Resources\Edits edits()
  * @method static \OpenAI\Resources\Files files()
@@ -27,7 +29,9 @@ use OpenAI\Responses\StreamResponse;
  * @method static \OpenAI\Resources\Moderations moderations()
  * @method static \OpenAI\Resources\Realtime realtime()
  * @method static \OpenAI\Resources\Responses responses()
+ * @method static \OpenAI\Resources\Skills skills()
  * @method static \OpenAI\Resources\Threads threads()
+ * @method static \OpenAI\Resources\Vaults vaults()
  * @method static \OpenAI\Resources\VectorStores vectorStores()
  */
 final class OpenAI extends Facade

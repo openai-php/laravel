@@ -12,8 +12,8 @@
     "require": {
         "php": "^8.2.0",
         "guzzlehttp/guzzle": "^7.9.3",
-        "laravel/framework": "^11.29|^12.12|^13.0",
-        "openai-php/client": "^0.21.0"
+        "laravel/framework": "^11.57|^12.70|^13.0",
+        "openai-php/client": "^0.22.0"
     },
     "require-dev": {
         "laravel/pint": "^1.22.0",
