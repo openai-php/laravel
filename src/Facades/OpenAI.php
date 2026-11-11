@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace OpenAI\Laravel\Facades;
 
 use Illuminate\Support\Facades\Facade;
+use OpenAI\Contracts\ClientContract;
 use OpenAI\Contracts\ResponseContract;
 use OpenAI\Laravel\Testing\OpenAIFake;
 use OpenAI\Responses\StreamResponse;
@@ -51,6 +52,11 @@ final class OpenAI extends Facade
     {
         $fake = new OpenAIFake($responses);
         self::swap($fake);
+
+        // Classes that get the client injected resolve the contract, not the facade's "openai" alias
+        if (isset(self::$app)) {
+            self::$app->instance(ClientContract::class, $fake);
+        }
 
         return $fake;
     }
