@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Config\Repository;
+use OpenAI\Contracts\ClientContract;
 use OpenAI\Laravel\Facades\OpenAI;
 use OpenAI\Laravel\ServiceProvider;
 use OpenAI\Resources\Completions;
@@ -214,3 +215,37 @@ test('fake throws an exception if any request was sent when non was expected', f
 
     OpenAI::assertNothingSent();
 })->expectException(ExpectationFailedException::class);
+
+test('fake replaces the client resolved from the container', function () {
+    $app = app();
+
+    $app->bind('config', fn () => new Repository([
+        'openai' => [
+            'api_key' => 'test',
+        ],
+    ]));
+
+    (new ServiceProvider($app))->register();
+
+    OpenAI::setFacadeApplication($app);
+
+    $fake = OpenAI::fake([
+        CreateResponse::fake([
+            'choices' => [
+                [
+                    'text' => 'awesome!',
+                ],
+            ],
+        ]),
+    ]);
+
+    expect($app->make(ClientContract::class))->toBe($fake)
+        ->and($app->make('openai'))->toBe($fake);
+
+    $completion = $app->make(ClientContract::class)->completions()->create([
+        'model' => 'gpt-3.5-turbo-instruct',
+        'prompt' => 'PHP is ',
+    ]);
+
+    expect($completion['choices'][0]['text'])->toBe('awesome!');
+});
